@@ -1,0 +1,121 @@
+{
+  "metadata": {
+    "title": "Pet Vet Clinic — Keeping your pets healthy and happy",
+    "description": "Full-service veterinary clinic in Nasr City and Zaitoon, Cairo. Surgeries, exams, ultrasound, lab tests, grooming, pharmacy and supplies."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "doctors": "Doctors",
+    "offers": "Offers",
+    "gallery": "Gallery",
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "hero": {
+    "headline": "Pet Vet Clinic",
+    "tagline": "Keeping your pets healthy and happy",
+    "primaryCta": "Book Now",
+    "secondaryCta": "View Offers"
+  },
+  "about": {
+    "title": "About Us",
+    "body": "Pet Vet Clinic is a full-service veterinary practice for companion animals, offering surgeries, examinations, ultrasound, lab tests, and grooming — plus a complete range of veterinary supplies, medications, and pet food. We proudly serve pet families from two convenient branches in Nasr City and Zaitoon, Cairo.",
+    "branchNasr": "Nasr City",
+    "branchZaitoon": "Zaitoon",
+    "diff1": "Experienced veterinary team",
+    "diff2": "Two Cairo branches",
+    "diff3": "Full in-clinic services & pharmacy"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Everything your pet needs under one roof",
+    "items": {
+      "surgeries": {
+        "title": "Surgeries",
+        "description": "Safe surgical care with modern protocols and attentive recovery support."
+      },
+      "examinations": {
+        "title": "Examinations",
+        "description": "Thorough wellness and sick-pet visits tailored to your companion."
+      },
+      "ultrasound": {
+        "title": "Ultrasound",
+        "description": "Non-invasive imaging to help diagnose and monitor health."
+      },
+      "lab": {
+        "title": "Lab Tests",
+        "description": "On-site and partner lab diagnostics for fast, reliable results."
+      },
+      "grooming": {
+        "title": "Grooming",
+        "description": "Professional grooming to keep pets comfortable and looking their best."
+      },
+      "pharmacy": {
+        "title": "Pharmacy & Supplies",
+        "description": "Medications, veterinary supplies, and quality pet food — all in one place."
+      }
+    }
+  },
+  "doctors": {
+    "title": "Our Veterinarians",
+    "subtitle": "Trusted experts who care for your pets like family",
+    "mark": {
+      "name": "Dr. Mark Eskandar",
+      "role": "Veterinarian — comprehensive care and surgery."
+    },
+    "tarek": {
+      "name": "Dr. Tarek Ghobashy",
+      "role": "Veterinarian — preventive care and internal medicine."
+    }
+  },
+  "language": {
+    "switchToEn": "English",
+    "switchToAr": "العربية"
+  },
+  "cta": {
+    "whatsapp": "WhatsApp"
+  },
+  "common": {
+    "brandName": "Pet Vet Clinic"
+  },
+  "offers": {
+    "title": "Special Offers",
+    "subtitle": "Limited-time promotions — book via WhatsApp to secure your spot",
+    "cta": "Book this offer",
+    "offerAlt": "Promotional offer {n}"
+  },
+  "gallery": {
+    "title": "Our Happy Patients",
+    "subtitle": "Moments from our clinic — your pets in caring hands",
+    "close": "Close",
+    "next": "Next image",
+    "prev": "Previous image",
+    "open": "Open image",
+    "patientAlt": "Happy patient at Pet Vet Clinic — photo {n}"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Call, message, or visit — we’re here for your pet",
+    "call": "Phone",
+    "whatsapp": "WhatsApp",
+    "email": "Email",
+    "instagram": "Instagram",
+    "facebook": "Facebook",
+    "facebookPage": "Pet Vet Clinic",
+    "tiktok": "TikTok",
+    "branches": "Our branches",
+    "branchNasr": "Nasr City",
+    "branchZaitoon": "Zaitoon",
+    "mapTitle": "Find us (Nasr City)",
+    "addressNasr": "Nasr City, Cairo, Egypt",
+    "addressZaitoon": "Al Zaitoon, Cairo, Egypt"
+  },
+  "footer": {
+    "tagline": "Keeping your pets healthy and happy",
+    "rights": "All rights reserved.",
+    "quickLinks": "Quick links"
+  }
+}

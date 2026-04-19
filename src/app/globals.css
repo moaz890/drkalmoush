@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand colors sampled from public/logo.png */
+  --color-brand-primary: #ca259e;
+  --color-brand-secondary: #0095e1;
+  --color-brand-dark: #0f172a;
+  --color-brand-muted: #64748b;
+
+  --font-family-ar: var(--font-arabic), ui-sans-serif, system-ui, sans-serif;
+  --font-family-en: var(--font-english), ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-brand: 0 12px 40px -12px rgb(202 37 158 / 0.35);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-brand-dark antialiased;
+  }
+
+  html[lang="ar"] body {
+    font-family: var(--font-family-ar);
+  }
+
+  html[lang="en"] body {
+    font-family: var(--font-family-en);
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand-secondary;
+  }
+}
