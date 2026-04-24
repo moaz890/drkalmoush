@@ -9,21 +9,24 @@ const cairo = Cairo({
   subsets: ["arabic", "latin"],
   variable: "--font-arabic",
   display: "swap",
+  weight: ["400", "500", "600", "700"],
 });
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-english",
   display: "swap",
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
   title: {
-    default: "Pet Vet Clinic",
-    template: "%s | Pet Vet Clinic",
+    default: "Prof. Dr. Abd-Elfattah Kalmoush",
+    template: "%s | Prof. Dr. Abd-Elfattah Kalmoush",
   },
-  description: "Veterinary clinic in Cairo",
+  description:
+    "Professor & consultant of bariatric, laparoscopic and GI surgery in Egypt.",
 };
 
 export default async function RootLayout({

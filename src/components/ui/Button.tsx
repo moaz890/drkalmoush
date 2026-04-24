@@ -1,42 +1,52 @@
-import type { ButtonHTMLAttributes, ReactNode } from "react";
+import type { ButtonHTMLAttributes } from "react";
 
-type Variant = "primary" | "secondary" | "whatsapp";
+type Variant =
+  | "primary"
+  | "secondary"
+  | "outline"
+  | "whatsapp"
+  | "gold"
+  | "onDark";
+type Size = "sm" | "md" | "lg";
 
-const variantClasses: Record<Variant, string> = {
-  primary:
-    "bg-gradient-to-r from-brand-primary to-brand-secondary text-white shadow-md hover:shadow-lg hover:brightness-105",
-  secondary:
-    "border-2 border-brand-secondary bg-white text-brand-dark hover:bg-brand-secondary/10",
-  whatsapp:
-    "bg-[#25D366] text-white shadow-md hover:bg-[#20bd5a] hover:shadow-lg",
+type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
+  variant?: Variant;
+  size?: Size;
 };
 
-const baseClasses =
-  "inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-secondary disabled:opacity-50";
+const base =
+  "inline-flex cursor-pointer items-center justify-center gap-2 rounded-xl font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none";
 
-export function buttonClassName(variant: Variant = "primary") {
-  return `${baseClasses} ${variantClasses[variant]}`;
-}
+const variants: Record<Variant, string> = {
+  primary: "bg-brand-primary text-white hover:bg-brand-accent",
+  secondary: "bg-brand-secondary text-white hover:bg-brand-primary",
+  outline:
+    "border border-brand-secondary/25 text-brand-dark hover:border-brand-accent/40 hover:bg-brand-accent/10",
+  whatsapp: "bg-[#25D366] text-white hover:brightness-95",
+  gold: "bg-brand-accent text-brand-primary hover:brightness-95",
+  onDark:
+    "border border-white/25 bg-white/0 text-white hover:bg-white/10 hover:border-white/30",
+};
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant?: Variant;
-  children: ReactNode;
-  asChild?: boolean;
+const sizes: Record<Size, string> = {
+  sm: "h-9 px-4 text-sm",
+  md: "h-11 px-5 text-sm",
+  lg: "h-12 px-6 text-base",
 };
 
 export function Button({
   variant = "primary",
+  size = "md",
   className = "",
-  children,
+  type = "button",
   ...props
-}: ButtonProps) {
+}: Props) {
   return (
     <button
-      type="button"
-      className={`${buttonClassName(variant)} ${className}`}
+      type={type}
+      className={`${base} ${variants[variant]} ${sizes[size]} ${className}`}
       {...props}
-    >
-      {children}
-    </button>
+    />
   );
 }
+

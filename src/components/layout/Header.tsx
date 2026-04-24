@@ -1,109 +1,322 @@
 "use client";
 
+import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
-import { useTranslations } from "next-intl";
-import { useState } from "react";
-import { FaBars, FaXmark } from "react-icons/fa6";
-import { Link } from "@/i18n/navigation";
-import { LanguageSwitcher } from "./LanguageSwitcher";
-import { Container } from "@/components/ui/Container";
+import { useLocale, useTranslations } from "next-intl";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaWhatsapp, FaMapMarkerAlt } from "react-icons/fa";
+import { usePathname, useRouter } from "@/i18n/navigation";
+import { routing } from "@/i18n/routing";
+import { Button } from "@/components/ui/Button";
+import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
+import { BRANCHES, WHATSAPP_DISPLAY, WHATSAPP_URL } from "@/lib/constants";
 
-const navKeys = [
-  "home",
-  "about",
-  "services",
-  "doctors",
-  "offers",
-  "gallery",
-  "contact",
-] as const;
-
-const hashByKey: Record<(typeof navKeys)[number], string> = {
-  home: "#hero",
-  about: "#about",
-  services: "#services",
-  doctors: "#doctors",
-  offers: "#offers",
-  gallery: "#gallery",
-  contact: "#contact",
-};
+type NavItem = { key: string; href: string; label: string };
 
 export function Header() {
-  const t = useTranslations("nav");
-  const tc = useTranslations("common");
-  const [open, setOpen] = useState(false);
+  const tNav = useTranslations("nav");
+  const tCommon = useTranslations("common");
+  const tHeader = useTranslations("header");
+  const locale = useLocale();
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const items: NavItem[] = useMemo(
+    () => [
+      { key: "home", href: "#home", label: tNav("home") },
+      { key: "about", href: "#about", label: tNav("about") },
+      { key: "services", href: "#services", label: tNav("services") },
+      { key: "testimonials", href: "#testimonials", label: tNav("testimonials") },
+      { key: "videos", href: "#videos", label: tNav("videos") },
+      { key: "conferences", href: "#conferences", label: tNav("conferences") },
+      { key: "blog", href: "#blog", label: tNav("blog") },
+      { key: "workshop", href: "#workshop", label: tNav("workshop") }
+    ],
+    [tNav]
+  );
+
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 100);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
+
+  const goToHash = (href: string) => {
+    // If we’re not already on the locale home route, navigate first then hash.
+    if (pathname !== "/") {
+      router.push("/", { locale });
+      // Let route settle; hash will still work after navigation.
+      setTimeout(() => {
+        window.location.hash = href;
+      }, 0);
+      return;
+    }
+    window.location.hash = href;
+  };
+
+  const showCompact = isScrolled;
+
+  const renderLabel = (it: NavItem) => {
+    const withPlus = it.key === "services" || it.key === "blog";
+    return (
+      <span className="inline-flex items-center gap-1">
+        {withPlus ? (
+          <span className="text-brand-primary transition-colors group-hover:text-brand-accent">
+            +
+          </span>
+        ) : null}
+        {it.label}
+      </span>
+    );
+  };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-brand-dark/5 bg-white/80 backdrop-blur-md">
-      <Container className="flex items-center justify-between gap-4 py-3 md:py-4">
-        <Link
-          href="/"
-          className="relative z-10 flex shrink-0 items-center gap-2"
-          onClick={() => setOpen(false)}
-        >
-          <Image
-            src="/logo.png"
-            alt={tc("brandName")}
-            width={48}
-            height={48}
-            className="h-11 w-auto object-contain md:h-12"
-            priority
-          />
-          <span className="hidden font-bold text-brand-dark sm:inline">
-            {tc("brandName")}
-          </span>
-        </Link>
+    <>
+      {/* Expanded full header (top of page) */}
+      {!showCompact ? (
+        <header className="absolute top-0 z-40 w-full pt-4">
+          <div className="mx-4 overflow-hidden rounded-2xl border border-brand-secondary/10 bg-white shadow-sm sm:mx-6 lg:mx-8">
+            {/* Top info bar */}
+            <div className="border-b border-brand-secondary/10">
+              <div className="flex w-full items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+              <div className="flex items-center gap-4">
+                <Image
+                  src="/logo.jpeg"
+                  alt={tCommon("brandName")}
+                  width={110}
+                  height={110}
+                  className="h-24 w-40 rounded-2xl object-cover shadow-sm"
+                  priority
+                />
+              </div>
 
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Main">
-          {navKeys.map((key) => (
-            <a
-              key={key}
-              href={hashByKey[key]}
-              className="rounded-lg px-3 py-2 text-sm font-medium text-brand-dark/85 transition hover:bg-brand-secondary/10 hover:text-brand-secondary"
-            >
-              {t(key)}
-            </a>
-          ))}
-        </nav>
+              <div className="hidden flex-1 items-center justify-center gap-3 lg:flex">
+                <div className="text-xs font-semibold text-brand-secondary/70">
+                  {tHeader("locations")}
+                </div>
+                <div className="flex items-stretch rounded-2xl bg-white">
+                  {BRANCHES.map((b, idx) => (
+                    <div
+                      key={b.key}
+                      className="relative cursor-pointer px-4 py-2"
+                    >
+                      {idx !== 0 ? (
+                        <span className="absolute inset-y-0 start-0 flex items-center">
+                          <span className="h-6 w-px bg-brand-primary/25" />
+                        </span>
+                      ) : null}
+                      <div className="group flex items-start gap-2">
+                        <span className="mt-0.5 inline-flex h-7 w-7 items-center justify-center rounded-full border border-brand-primary/20 transition-colors group-hover:border-brand-accent/35">
+                          <FaMapMarkerAlt className="text-brand-primary transition-colors group-hover:text-brand-accent" />
+                        </span>
+                        <div>
+                          <div className="text-sm font-semibold text-brand-primary">
+                            {locale === "ar" ? b.nameAr : b.nameEn}
+                          </div>
+                          <div className="max-w-[18rem] truncate text-xs text-brand-muted">
+                            {locale === "ar" ? b.addressAr : b.addressEn}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
 
-        <div className="flex items-center gap-2">
-          <LanguageSwitcher />
-          <button
-            type="button"
-            className="inline-flex rounded-lg p-2 text-brand-dark lg:hidden"
-            onClick={() => setOpen((v) => !v)}
-            aria-expanded={open}
-            aria-controls="mobile-nav"
-            aria-label={open ? t("closeMenu") : t("openMenu")}
-          >
-            {open ? (
-              <FaXmark className="h-6 w-6" />
-            ) : (
-              <FaBars className="h-6 w-6" />
-            )}
-          </button>
-        </div>
-      </Container>
+              <div className="flex items-center gap-3">
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hidden items-center gap-2 rounded-xl px-3 py-2 text-sm font-medium text-brand-secondary hover:bg-brand-secondary/5 md:flex"
+                >
+                  <FaWhatsapp className="text-[#25D366]" />
+                  <span className="whitespace-nowrap">{WHATSAPP_DISPLAY}</span>
+                </a>
+                <LanguageSwitcher />
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="md:hidden"
+                  aria-label={menuOpen ? "Close menu" : "Open menu"}
+                  onClick={() => setMenuOpen((v) => !v)}
+                >
+                  {menuOpen ? "×" : "☰"}
+                </Button>
+              </div>
+              </div>
+          </div>
 
-      {open ? (
-        <div
-          id="mobile-nav"
-          className="border-t border-brand-dark/10 bg-white px-4 pb-4 lg:hidden"
-        >
-          <nav className="flex flex-col gap-1 pt-2" aria-label="Mobile">
-            {navKeys.map((key) => (
-              <a
-                key={key}
-                href={hashByKey[key]}
-                className="rounded-lg px-3 py-3 text-base font-medium text-brand-dark hover:bg-brand-secondary/10"
-                onClick={() => setOpen(false)}
-              >
-                {t(key)}
+          {/* Bottom nav row */}
+            <div className="flex w-full items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+            <nav className="hidden items-center gap-5 lg:flex">
+              {items.map((it) => (
+                <button
+                  key={it.key}
+                  onClick={() => goToHash(it.href)}
+                  className="group relative cursor-pointer text-base font-semibold text-brand-primary transition-colors hover:text-brand-accent"
+                >
+                  {renderLabel(it)}
+                  <span className="absolute -bottom-3 start-0 h-0.5 w-0 bg-brand-primary transition-all group-hover:w-full" />
+                </button>
+              ))}
+            </nav>
+
+            <div className="hidden items-center gap-2 lg:flex">
+              <a href="#clinics">
+                <Button variant="primary" size="sm" className="text-white">
+                  {tHeader("bookAppointment")}
+                </Button>
               </a>
-            ))}
-          </nav>
+              <a href="#contact">
+                <Button variant="secondary" size="sm">
+                  {tHeader("bookOnline")}
+                </Button>
+              </a>
+            </div>
+
+            <div className="flex w-full items-center justify-between lg:hidden">
+              <div className="text-base font-semibold text-brand-primary">
+                {tCommon("brandName")}
+              </div>
+              <div className="flex items-center gap-2">
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-xl px-3 py-2 text-base font-medium text-brand-primary hover:bg-brand-secondary/5"
+                >
+                  <FaWhatsapp className="text-[#25D366]" />
+                  <span className="whitespace-nowrap">{WHATSAPP_DISPLAY}</span>
+                </a>
+              </div>
+            </div>
+            </div>
+          </div>
+        </header>
+      ) : null}
+
+      {/* Compact scrolled header */}
+      <AnimatePresence>
+        {showCompact ? (
+          <motion.header
+            initial={{ y: "-100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "-100%" }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="fixed top-0 z-50 w-full pt-3"
+          >
+            <div className="mx-4 overflow-hidden rounded-2xl border border-brand-secondary/10 bg-white/95 shadow-sm backdrop-blur sm:mx-6 lg:mx-8">
+              <div className="flex h-16 w-full items-center justify-between px-4 sm:px-6 lg:px-8">
+                <div className="flex items-center gap-3">
+                  <Image
+                    src="/logo.jpeg"
+                    alt={tCommon("brandName")}
+                    width={60}
+                    height={60}
+                    className="h-24 w-30 rounded-xl object-cover shadow-sm"
+                  />
+                </div>
+
+                <nav className="hidden items-center gap-4 xl:flex">
+                  {items.map((it) => (
+                    <button
+                      key={it.key}
+                      onClick={() => goToHash(it.href)}
+                      className="group cursor-pointer text-base font-semibold text-brand-primary transition-colors hover:text-brand-accent"
+                    >
+                      {renderLabel(it)}
+                    </button>
+                  ))}
+                </nav>
+
+                <div className="flex items-center gap-2">
+                  <div className="hidden items-center gap-2 md:flex">
+                    <a href="#clinics">
+                      <Button variant="primary" size="sm">
+                        {tHeader("bookAppointment")}
+                      </Button>
+                    </a>
+                    <a href="#contact">
+                      <Button variant="secondary" size="sm">
+                        {tHeader("bookOnline")}
+                      </Button>
+                    </a>
+                    <LanguageSwitcher />
+                  </div>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="md:hidden"
+                    aria-label={menuOpen ? "Close menu" : "Open menu"}
+                    onClick={() => setMenuOpen((v) => !v)}
+                  >
+                    {menuOpen ? "×" : "☰"}
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </motion.header>
+        ) : null}
+      </AnimatePresence>
+
+      {menuOpen ? (
+        <div className="fixed inset-0 z-50 bg-black/35 md:hidden">
+          <div className="absolute inset-y-0 end-0 w-[85%] max-w-sm bg-white shadow-2xl">
+            <div className="flex h-16 items-center justify-between px-4">
+              <div className="text-sm font-semibold">{tCommon("brandName")}</div>
+              <Button
+                variant="outline"
+                size="sm"
+                aria-label="Close"
+                onClick={() => setMenuOpen(false)}
+              >
+                ×
+              </Button>
+            </div>
+            <div className="px-4 pb-6">
+              <div className="mb-4 flex items-center justify-between">
+                <LanguageSwitcher />
+              </div>
+              <div className="flex flex-col gap-2">
+                {items.map((it) => (
+                  <button
+                    key={it.key}
+                    onClick={() => {
+                      setMenuOpen(false);
+                      goToHash(it.href);
+                    }}
+                    className="w-full rounded-xl px-3 py-2 text-start text-sm hover:bg-brand-secondary/5"
+                  >
+                    {renderLabel(it)}
+                  </button>
+                ))}
+              </div>
+              <div className="mt-6 grid gap-2">
+                <a href="#clinics">
+                  <Button variant="primary" className="w-full">
+                    {tHeader("bookAppointment")}
+                  </Button>
+                </a>
+                <a href="#contact">
+                  <Button variant="secondary" className="w-full">
+                    {tHeader("bookOnline")}
+                  </Button>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       ) : null}
-    </header>
+    </>
   );
 }
+

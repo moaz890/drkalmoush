@@ -1,16 +1,24 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand colors sampled from public/logo.png */
-  --color-brand-primary: #ca259e;
-  --color-brand-secondary: #0095e1;
-  --color-brand-dark: #0f172a;
-  --color-brand-muted: #64748b;
+  /* Brand: navy + gold */
+  --color-brand-primary: #1c2359;
+  --color-brand-secondary: #0b1b2b;
+  --color-brand-accent: #c6a15b;
+  --color-brand-dark: #07111c;
+  --color-brand-muted: #5b6775;
 
-  --font-family-ar: var(--font-arabic), ui-sans-serif, system-ui, sans-serif;
-  --font-family-en: var(--font-english), ui-sans-serif, system-ui, sans-serif;
+  --bs-font-sans-serif: var(--font-arabic), "Cairo", system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans",
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+  --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
 
-  --shadow-brand: 0 12px 40px -12px rgb(202 37 158 / 0.35);
+  --font-family-ar: var(--bs-font-sans-serif);
+  --font-family-en: var(--bs-font-sans-serif);
+
+  --shadow-brand: 0 18px 50px -20px rgb(7 17 28 / 0.35);
 }
 
 @layer base {
@@ -32,5 +40,26 @@
 
   :focus-visible {
     @apply outline-2 outline-offset-2 outline-brand-secondary;
+  }
+}
+
+@layer utilities {
+  @keyframes image-flash {
+    0% {
+      opacity: 0;
+      transform: translateX(-20%);
+    }
+    15% {
+      opacity: 1;
+      transform: translateX(0%);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(20%);
+    }
+  }
+
+  .animate-image-flash {
+    animation: image-flash 1s ease-out both;
   }
 }

@@ -1,121 +1,121 @@
 {
+  "common": {
+    "brandName": "Dr. Abd-Elfattah Kalmoush Clinic"
+  },
   "metadata": {
-    "title": "Pet Vet Clinic — Keeping your pets healthy and happy",
-    "description": "Full-service veterinary clinic in Nasr City and Zaitoon, Cairo. Surgeries, exams, ultrasound, lab tests, grooming, pharmacy and supplies."
+    "title": "Prof. Dr. Abd-Elfattah Kalmoush",
+    "description": "Professor of General Surgery and consultant in bariatric, laparoscopic, GI and hepatobiliary surgery."
   },
   "nav": {
     "home": "Home",
-    "about": "About",
-    "services": "Services",
-    "doctors": "Doctors",
-    "offers": "Offers",
-    "gallery": "Gallery",
-    "contact": "Contact",
-    "openMenu": "Open menu",
-    "closeMenu": "Close menu"
+    "about": "About & CV",
+    "services": "Our Services",
+    "testimonials": "Testimonials",
+    "videos": "Videos",
+    "conferences": "Conferences & Workshops",
+    "blog": "Blog",
+    "workshop": "Workshop"
+  },
+  "header": {
+    "bookAppointment": "Book appointment",
+    "bookOnline": "Online consultation",
+    "locations": "Locations"
   },
   "hero": {
-    "headline": "Pet Vet Clinic",
-    "tagline": "Keeping your pets healthy and happy",
-    "primaryCta": "Book Now",
-    "secondaryCta": "View Offers"
+    "slide1": {
+      "tagline": "We draw hope again… congenital care starts here",
+      "title": "Professor of General Surgery — Faculty of Medicine, Al-Azhar University",
+      "subtitle": "Head of Advanced Laparoscopic Surgery Unit — Al-Azhar University Hospitals"
+    },
+    "slide2": {
+      "tagline": "International experience in bariatric & laparoscopic surgery",
+      "title": "Consultant in bariatric surgery, abdominal wall & hernia",
+      "subtitle": "Member of the International Federation for the Surgery of Obesity (IFSO)"
+    },
+    "slide3": {
+      "tagline": "International researcher in general & bariatric surgery",
+      "title": "Member of the Egyptian Society for Bariatric Surgery (ESBS)",
+      "subtitle": "Member of the Egyptian Society of Laparoscopic Surgeons (ESLS)"
+    },
+    "doctorAlt": "Doctor portrait",
+    "socialsAria": "Social media links",
+    "ctaBook": "Book an appointment",
+    "ctaBookOnline": "Book online consultation"
   },
   "about": {
-    "title": "About Us",
-    "body": "Pet Vet Clinic is a full-service veterinary practice for companion animals, offering surgeries, examinations, ultrasound, lab tests, and grooming — plus a complete range of veterinary supplies, medications, and pet food. We proudly serve pet families from two convenient branches in Nasr City and Zaitoon, Cairo.",
-    "branchNasr": "Nasr City",
-    "branchZaitoon": "Zaitoon",
-    "diff1": "Experienced veterinary team",
-    "diff2": "Two Cairo branches",
-    "diff3": "Full in-clinic services & pharmacy"
+    "topLabel": "Prof. Dr. Abd-Elfattah Kalmoush",
+    "headline": "World-Class Expertise in Bariatric, Laparoscopic & GI Surgery",
+    "sealAlt": "Doctor seal",
+    "bioNew": "Prof. Dr. Abd-Elfattah Kalmoush, Professor of General Surgery at Al-Azhar University Faculty of Medicine, is an expert in bariatric surgery, laparoscopic procedures, abdominal wall & hernia surgery, and GI & hepatobiliary surgery.",
+    "credentials": {
+      "c1": {
+        "title": "Professor of General Surgery",
+        "description": "Faculty of Medicine — Al-Azhar University"
+      },
+      "c2": {
+        "title": "Head of Advanced Laparoscopic Unit",
+        "description": "Al-Azhar University Hospitals"
+      },
+      "c3": {
+        "title": "IFSO Member",
+        "description": "International Federation for Surgery of Obesity"
+      },
+      "c4": {
+        "title": "ESBS & ESLS Member",
+        "description": "Egyptian Society for Bariatric Surgery & Laparoscopic Surgeons"
+      }
+    },
+    "more": "Read More",
+    "bookingLabel": "Booking & Inquiries",
+    "surgeryAlt1": "Surgery image 1",
+    "surgeryAlt2": "Surgery image 2",
+    "videoAlt": "Intro video",
+    "playVideo": "Play video"
   },
-  "services": {
-    "title": "Our Services",
-    "subtitle": "Everything your pet needs under one roof",
+  "stats": {
+    "aria": "Trust stats",
+    "years": "Years of experience",
+    "surgeries": "Surgeries performed",
+    "unitHead": "Head of advanced laparoscopy unit",
+    "memberships": "International memberships"
+  },
+  "highlights": {
+    "aria": "Highlights",
+    "c1": {
+      "title": "Bariatric Surgery Experts",
+      "description": "Specialized consultant in bariatric surgery, gastric bypass & sleeve gastrectomy using latest international techniques"
+    },
+    "c2": {
+      "title": "Advanced Laparoscopic Techniques",
+      "description": "Head of Advanced Laparoscopic Surgery Unit at Al-Azhar University Hospitals, over two decades of expertise"
+    },
+    "c3": {
+      "title": "Internationally Recognized Researcher",
+      "description": "Member of IFSO & international researcher in general surgery and bariatric surgery"
+    }
+  },
+  "servicesSection": {
+    "doctorName": "Prof. Dr. Abd-Elfattah Kalmoush",
+    "title": "Our Medical Services",
+    "more": "Read more",
+    "detailsTitle": "Procedure details",
+    "bookNow": "Book now",
     "items": {
-      "surgeries": {
-        "title": "Surgeries",
-        "description": "Safe surgical care with modern protocols and attentive recovery support."
+      "tummyTuck": {
+        "title": "Tummy Tuck",
+        "excerpt": "A specialized procedure to remove excess skin and tighten the abdominal area for a more balanced shape, with a tailored plan and close pre/post-operative follow-up.",
+        "details": "Remove excess skin and fat\nTighten abdominal muscles and improve contour\nClear, long-lasting results\nPerformed under specialist medical supervision\nA tailored plan and full follow-up before and after the procedure"
       },
-      "examinations": {
-        "title": "Examinations",
-        "description": "Thorough wellness and sick-pet visits tailored to your companion."
+      "gastricBypass": {
+        "title": "Gastric Bypass",
+        "excerpt": "One of the most effective bariatric surgeries for sustained weight loss and improving obesity-related conditions such as diabetes and hypertension, with long-term nutritional follow-up.",
+        "details": "Creates a smaller stomach pouch to help you feel full faster\nReroutes part of the intestine to reduce calorie absorption\nCandidates: BMI 40+ or BMI 35+ with comorbidities\nBenefits: significant sustained weight loss, improved diabetes control\nRequires vitamins/minerals supplementation and long-term dietary commitment"
       },
-      "ultrasound": {
-        "title": "Ultrasound",
-        "description": "Non-invasive imaging to help diagnose and monitor health."
-      },
-      "lab": {
-        "title": "Lab Tests",
-        "description": "On-site and partner lab diagnostics for fast, reliable results."
-      },
-      "grooming": {
-        "title": "Grooming",
-        "description": "Professional grooming to keep pets comfortable and looking their best."
-      },
-      "pharmacy": {
-        "title": "Pharmacy & Supplies",
-        "description": "Medications, veterinary supplies, and quality pet food — all in one place."
+      "hiatalHernia": {
+        "title": "Hiatal Hernia Repair (Laparoscopic)",
+        "excerpt": "Minimally invasive repair to relieve reflux symptoms and restore quality of life, with less pain and a faster recovery back to daily activities.",
+        "details": "Laparoscopic (no traditional open surgery)\nLess pain after surgery\nFaster recovery and return to daily life\nEffective relief for reflux/heartburn\nDurable long-term results\nRepositions the stomach and repairs the diaphragm opening precisely"
       }
     }
-  },
-  "doctors": {
-    "title": "Our Veterinarians",
-    "subtitle": "Trusted experts who care for your pets like family",
-    "mark": {
-      "name": "Dr. Mark Eskandar",
-      "role": "Veterinarian — comprehensive care and surgery."
-    },
-    "tarek": {
-      "name": "Dr. Tarek Ghobashy",
-      "role": "Veterinarian — preventive care and internal medicine."
-    }
-  },
-  "language": {
-    "switchToEn": "English",
-    "switchToAr": "العربية"
-  },
-  "cta": {
-    "whatsapp": "WhatsApp"
-  },
-  "common": {
-    "brandName": "Pet Vet Clinic"
-  },
-  "offers": {
-    "title": "Special Offers",
-    "subtitle": "Limited-time promotions — book via WhatsApp to secure your spot",
-    "cta": "Book this offer",
-    "offerAlt": "Promotional offer {n}"
-  },
-  "gallery": {
-    "title": "Our Happy Patients",
-    "subtitle": "Moments from our clinic — your pets in caring hands",
-    "close": "Close",
-    "next": "Next image",
-    "prev": "Previous image",
-    "open": "Open image",
-    "patientAlt": "Happy patient at Pet Vet Clinic — photo {n}"
-  },
-  "contact": {
-    "title": "Contact Us",
-    "subtitle": "Call, message, or visit — we’re here for your pet",
-    "call": "Phone",
-    "whatsapp": "WhatsApp",
-    "email": "Email",
-    "instagram": "Instagram",
-    "facebook": "Facebook",
-    "facebookPage": "Pet Vet Clinic",
-    "tiktok": "TikTok",
-    "branches": "Our branches",
-    "branchNasr": "Nasr City",
-    "branchZaitoon": "Zaitoon",
-    "mapTitle": "Find us (Nasr City)",
-    "addressNasr": "Nasr City, Cairo, Egypt",
-    "addressZaitoon": "Al Zaitoon, Cairo, Egypt"
-  },
-  "footer": {
-    "tagline": "Keeping your pets healthy and happy",
-    "rights": "All rights reserved.",
-    "quickLinks": "Quick links"
   }
 }

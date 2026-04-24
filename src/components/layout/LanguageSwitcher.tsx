@@ -1,28 +1,31 @@
 "use client";
 
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
+import { routing } from "@/i18n/routing";
+import { Button } from "@/components/ui/Button";
 
 export function LanguageSwitcher() {
+  const t = useTranslations("common");
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
 
-  const otherLocale = locale === "ar" ? "en" : "ar";
-  const label = locale === "ar" ? "English" : "العربية";
+  const nextLocale =
+    locale === routing.locales[0] ? routing.locales[1] : routing.locales[0];
 
-  function switchLocale() {
-    router.replace(pathname, { locale: otherLocale });
-  }
+  const label =
+    nextLocale === "en" ? "English 🇬🇧" : "عربي 🇪🇬";
 
   return (
-    <button
-      type="button"
-      onClick={switchLocale}
-      className="rounded-full border border-brand-dark/15 bg-white/90 px-3 py-1.5 text-sm font-medium text-brand-dark shadow-sm transition hover:border-brand-secondary/40 hover:bg-white"
-      aria-label={locale === "ar" ? "Switch to English" : "التبديل إلى العربية"}
+    <Button
+      variant="outline"
+      size="sm"
+      aria-label={t("brandName")}
+      onClick={() => router.replace(pathname, { locale: nextLocale })}
     >
       {label}
-    </button>
+    </Button>
   );
 }
+
