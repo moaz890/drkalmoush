@@ -65,12 +65,12 @@ The project is already scaffolded with:
 | 3 | **Highlights Strip** | 3 pastel-colored cards (expertise, techniques, achievements) below hero |
 | 4 | **About / Credentials** | 3-column: surgery images + bio/credentials list + YouTube video embed |
 | 5 | **Services** | Horizontal cards: icon + specialties text + surgery image + "Read More" dialog |
-| 6 | **Testimonials** | Patient testimonials / experiences section |
-| 7 | **Videos** | Video gallery of procedures & educational content |
-| 8 | **Conferences & Workshops** | Conference appearances and workshop gallery |
-| 9 | **Blog** | Blog posts / articles listing |
-| 10 | **FAQ** | Accordion with common questions about procedures |
-| 11 | **Clinics & Booking** | 3 branch cards with address, phone, map embeds, WhatsApp CTA |
+| 6 | **Clinic Hours & FAQ** | 2-column: Dark navy schedule sidebar + medical-branded FAQ accordion |
+| 7 | **Testimonials** | Patient testimonials / experiences section |
+| 8 | **Videos** | Video gallery of procedures & educational content |
+| 9 | **Conferences & Workshops** | Conference appearances and workshop gallery |
+| 10 | **Blog** | Blog posts / articles listing |
+| 11 | **Clinics & Booking** | Detailed branch maps & full address info (Cairo, Zagazig, Hehya) |
 | 12 | **Footer** | Logo, quick links, contact info, copyright |
 
 ---
@@ -572,16 +572,59 @@ Each card represents one surgery type and has the following horizontal structure
 
 ---
 
-## Phase 5 — FAQ & Gallery
+## Phase 5 — Clinic Hours & FAQ (NEW DESIGN — 2-column layout)
 
-### 5.1 FAQ Section
-- Accordion component with 5–6 common questions.
-- Questions/answers bilingual from locale files.
-- Smooth open/close animation.
+> **Reference Design:** A split section. Left column (RTL: right) is a dark navy box with clinic schedules and a gold book button. Right column (RTL: left) is a light area with medical-branded FAQ headers and an accordion.
 
-### 5.2 Gallery Section (Optional enhancement)
-- Procedure images in a masonry/grid layout.
-- Lightbox modal on click.
+### 📐 Overall Layout
+
+- **Container:** Standard `Container` with full-width split.
+- **Grid:** `grid grid-cols-1 lg:grid-cols-12 gap-0 overflow-hidden rounded-3xl shadow-xl`.
+  - **Left Col (Hours):** `lg:col-span-5 bg-brand-secondary p-8 sm:p-12 text-white`.
+  - **Right Col (FAQ):** `lg:col-span-7 bg-slate-50 p-8 sm:p-12`.
+
+### 🕒 Left Column — Clinic Hours
+
+- **Header Text:** `Zagazig Clinic Hours`, `Cairo Clinic Hours`, etc. (White, `text-2xl font-bold mb-6`).
+- **Hours Box:**
+  *   `border border-white/20 rounded-xl p-4 mb-8 flex justify-between items-center text-sm sm:text-base`.
+  *   Content Example: `Sunday - Tuesday - Thursday` | `5:00 - 10:00 PM`.
+- **Book Button:**
+  *   Position: Bottom aligned to the end (left in RTL).
+  *   Style: `bg-brand-accent hover:bg-brand-accent/90 text-brand-dark px-6 py-3 rounded-lg font-bold flex items-center gap-2 transition-all`.
+  *   Icon: `FaCalendarAlt`.
+  *   Label: "حجز موعد بالكشف" / "Book An Appointment".
+
+### ❓ Right Column — FAQ
+
+- **Top Header:**
+  *   `text-brand-accent tracking-widest text-xs font-bold uppercase mb-2`.
+  *   Label: `ASK DR. ABD-ELFATTAH KALMOUSH`.
+  *   Icon: Heartbeat line icon `FaHeartbeat` beside it.
+- **Section Headline:**
+  *   `text-3xl sm:text-4xl font-bold text-brand-dark mb-8`.
+  *   Label: "أسئلة شائعة عن خدماتنا" / "Questions about our services".
+- **Accordion Component:**
+  *   Use `@/components/ui/accordion`.
+  *   Style: Clean, white background for items, `+` icon for trigger.
+  *   Content: 4-5 focused questions about Bariatric and Laparoscopic surgery (derived from `info.md`).
+
+### 🍱 Sample FAQ Data
+
+| # | Question (AR) | Question (EN) | Answer (AR) |
+|---|---|---|---|
+| 1 | ما هي عملية تحويل المسار؟ | What is Gastric Bypass? | تعتمد على تصغير المعدة وتغيير مسار الأمعاء لتقليل الوزن وتحسين السكر. |
+| 2 | هل جراحة فتق الحجاب الحاجز آمنة؟ | Is Hiatal Hernia surgery safe? | نعم، تُجرى بالمنظار بفتحات صغيرة وألم أقل وفترة تعافي سريعة. |
+| 3 | من هم المرشحون لجراحات السمنة؟ | Who are candidates for Bariatric surgery? | الأشخاص بمؤشر كتلة جسم 40+ أو 35+ مع أمراض مزمنة كالسكر والضغط. |
+
+### 📏 Styling & Responsive
+
+- On mobile: The dark sidebar stacks on top (or bottom depending on priority).
+- Animation:
+  *   Hours box slide from end: `initial={{ x: 50, opacity: 0 }}`.
+  *   FAQ questions slide from bottom: `staggered children`.
+
+---
 
 ---
 

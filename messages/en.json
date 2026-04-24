@@ -117,5 +117,35 @@
         "details": "Laparoscopic (no traditional open surgery)\nLess pain after surgery\nFaster recovery and return to daily life\nEffective relief for reflux/heartburn\nDurable long-term results\nRepositions the stomach and repairs the diaphragm opening precisely"
       }
     }
+  },
+  "phase5": {
+    "hours": {
+      "title": "Clinic hours",
+      "h1": { "clinic": "Zagazig Clinic", "days": "Sunday - Tuesday - Thursday", "time": "5:00 - 10:00 PM" },
+      "h2": { "clinic": "Cairo Clinic", "days": "Saturday - Monday - Wednesday", "time": "5:00 - 10:00 PM" },
+      "h3": { "clinic": "Hehya Clinic", "days": "Friday", "time": "6:00 - 9:00 PM" },
+      "cta": "Book an appointment"
+    },
+    "faq": {
+      "kicker": "ASK DR. ABD-ELFATTAH KALMOUSH",
+      "title": "Questions about our services",
+      "bookNow": "Book now",
+      "q1": {
+        "q": "What is Gastric Bypass?",
+        "a": "It reduces stomach size and reroutes part of the intestine to support weight loss and improve diabetes control."
+      },
+      "q2": {
+        "q": "Is Hiatal Hernia surgery safe?",
+        "a": "Yes. It’s commonly performed laparoscopically with smaller incisions, less pain, and faster recovery."
+      },
+      "q3": {
+        "q": "Who are candidates for bariatric surgery?",
+        "a": "Typically BMI 40+ or BMI 35+ with comorbidities such as diabetes or hypertension."
+      },
+      "q4": {
+        "q": "When can I return to normal life after laparoscopic surgery?",
+        "a": "Recovery is usually faster, but the timeline depends on your case and the procedure type."
+      }
+    }
   }
 }
