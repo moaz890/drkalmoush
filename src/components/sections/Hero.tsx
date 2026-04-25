@@ -136,6 +136,8 @@ export function Hero() {
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white/90 transition-transform hover:scale-110"
+                  aria-label={t("socialFacebook")}
+                  title={t("socialFacebook")}
                 >
                   <FaFacebook />
                 </a>
@@ -144,6 +146,8 @@ export function Hero() {
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white/90 transition-transform hover:scale-110"
+                  aria-label={t("socialTiktok")}
+                  title={t("socialTiktok")}
                 >
                   <FaTiktok />
                 </a>
@@ -152,6 +156,8 @@ export function Hero() {
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white/90 transition-transform hover:scale-110"
+                  aria-label={t("socialInstagram")}
+                  title={t("socialInstagram")}
                 >
                   <FaInstagram />
                 </a>
@@ -160,6 +166,8 @@ export function Hero() {
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white/90 transition-transform hover:scale-110"
+                  aria-label={t("socialYoutube")}
+                  title={t("socialYoutube")}
                 >
                   <FaYoutube />
                 </a>
@@ -171,8 +179,8 @@ export function Hero() {
 
       <div
         className="pointer-events-none absolute bottom-4 start-0 end-0 z-30 flex items-center justify-center gap-2"
-        role="tablist"
-        aria-label="Hero carousel"
+        role="group"
+        aria-label={t("carouselControlsAria")}
       >
         {slides.map((s, idx) => (
           <button
@@ -183,8 +191,8 @@ export function Hero() {
               width: active === idx ? 16 : 10,
               height: active === idx ? 10 : 8,
             }}
-            aria-label={`Slide ${idx + 1}`}
-            aria-pressed={active === idx}
+            aria-label={t("carouselGoToSlide", { number: idx + 1 })}
+            aria-current={active === idx}
             onClick={() => setActive(idx)}
           >
             <span

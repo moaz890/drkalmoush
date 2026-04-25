@@ -39,8 +39,14 @@
     },
     "doctorAlt": "Doctor portrait",
     "socialsAria": "Social media links",
+    "socialFacebook": "Facebook",
+    "socialTiktok": "TikTok",
+    "socialInstagram": "Instagram",
+    "socialYoutube": "YouTube",
     "ctaBook": "Book an appointment",
-    "ctaBookOnline": "Book online consultation"
+    "ctaBookOnline": "Book online consultation",
+    "carouselControlsAria": "Hero carousel controls",
+    "carouselGoToSlide": "Go to slide {number}"
   },
   "about": {
     "topLabel": "Prof. Dr. Abd-Elfattah Kalmoush",
@@ -117,6 +123,18 @@
         "details": "Laparoscopic (no traditional open surgery)\nLess pain after surgery\nFaster recovery and return to daily life\nEffective relief for reflux/heartburn\nDurable long-term results\nRepositions the stomach and repairs the diaphragm opening precisely"
       }
     }
+  },
+  "footer": {
+    "aboutText": "Professor of General Surgery and consultant in bariatric, laparoscopic, GI and hepatobiliary surgery. Book appointments across our clinics or contact us on WhatsApp.",
+    "usefulLinks": "Useful links",
+    "services": "Our medical services",
+    "clinics": "Clinics",
+    "socials": "Social platforms:",
+    "socialFacebook": "Facebook",
+    "socialInstagram": "Instagram",
+    "socialTiktok": "TikTok",
+    "socialYoutube": "YouTube",
+    "copyright": "Copyright © {year} Dr. Abd‑Elfattah Kalmoush Clinic. All rights reserved."
   },
   "phase5": {
     "hours": {

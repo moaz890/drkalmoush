@@ -36,6 +36,7 @@ export const BRANCHES = [
 ] as const;
 
 export const MAPS = {
+  mokattam: "https://maps.app.goo.gl/ibtunv6rE1UnxXz86",
   hehya:
     "https://www.google.com/maps/place/%D9%85%D8%B1%D9%83%D8%B2+%D8%A7%D9%84%D8%B7%D9%8A%D8%A8+%D9%84%D9%84%D8%AC%D8%B1%D8%A7%D8%AD%D8%A9+%D8%A7%D9%84%D8%B9%D8%A7%D9%85%D8%A9+%D9%88%D8%A7%D9%84%D9%85%D9%86%D8%A7%D8%B8%D9%8A%D8%B1+%D8%A7%D9%84%D8%AC%D8%B1%D8%A7%D8%AD%D9%8A%D8%A9%E2%80%AD/@30.6690366,31.5906534,18.04z/data=!4m15!1m8!3m7!1s0x14f7f52373e67c9d:0x453a60c07ffe674!2z2YfZh9mK2KfYjCDZhdix2YPYsiDZh9mH2YrYp9iMINmF2K3Yp9mB2LjYqSDYp9mE2LTYsdmC2YrYqQ!3b1!8m2!3d30.6719395!4d31.5913577!16s%2Fm%2F0gy1lq5!3m5!1s0x14f7f5006f988981:0x6750a1191cb99b5a!8m2!3d30.6681191!4d31.5900288!16s%2Fg%2F11ym759mhz?entry=ttu&g_ep=EgoyMDI2MDQyMS4wIKXMDSoASAFQAw%3D%3D",
   zagazig:
@@ -44,8 +45,8 @@ export const MAPS = {
 
 /** TODO: replace with real social profiles when available */
 export const SOCIALS = {
-  facebook: "https://www.facebook.com/",
+  facebook: "https://www.facebook.com/profile.php?id=100087022950616",
   tiktok: "https://www.tiktok.com/",
-  instagram: "https://www.instagram.com/",
-  youtube: "https://www.youtube.com/",
+  instagram: "https://www.instagram.com/dr.abdelfattahmorsi",
+  youtube: "https://www.youtube.com/@abd-elfattahkalmoush9985",
 } as const;

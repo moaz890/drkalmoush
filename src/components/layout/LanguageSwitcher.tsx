@@ -21,7 +21,7 @@ export function LanguageSwitcher() {
     <Button
       variant="outline"
       size="sm"
-      aria-label={t("brandName")}
+      aria-label={label}
       onClick={() => router.replace(pathname, { locale: nextLocale })}
     >
       {label}

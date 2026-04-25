@@ -21,7 +21,7 @@ export function ClinicHoursFaq() {
   return (
     <section id="faq" className="py-16 sm:py-20">
       <Container>
-        <div className="grid grid-cols-1 overflow-hidden rounded-3xl shadow-xl lg:grid-cols-12">
+        <div className="grid grid-cols-1 overflow-hidden rounded-3xl shadow-[var(--shadow-whisper)] lg:grid-cols-12">
           {/* Hours */}
           <motion.aside
             initial={{ x: 50, opacity: 0 }}
@@ -30,7 +30,7 @@ export function ClinicHoursFaq() {
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="bg-brand-secondary p-8 text-white sm:p-12 lg:col-span-5"
           >
-            <h3 className="mb-6 text-2xl font-bold">{t("hours.title")}</h3>
+            <h3 className="mb-6 text-2xl font-medium">{t("hours.title")}</h3>
 
             <div className="space-y-4">
               {(["h1", "h2", "h3"] as const).map((k) => (
@@ -54,25 +54,22 @@ export function ClinicHoursFaq() {
 
             <div className="mt-8 flex justify-end">
               <a href={WHATSAPP_URL} target="_blank" rel="noreferrer">
-                <button
-                  type="button"
-                  className="inline-flex items-center gap-2 rounded-lg bg-brand-accent px-6 py-3 font-bold text-brand-dark transition-all hover:bg-brand-accent/90"
-                >
+                <Button variant="primary">
                   <FaCalendarAlt />
                   {t("hours.cta")}
-                </button>
+                </Button>
               </a>
             </div>
           </motion.aside>
 
           {/* FAQ */}
-          <div className="bg-slate-50 p-8 sm:p-12 lg:col-span-7">
+          <div className="bg-surface-ivory p-8 sm:p-12 lg:col-span-7">
             <div className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-brand-accent">
               <span>{t("faq.kicker")}</span>
               <FaHeartbeat className="text-sm text-red-500" />
             </div>
 
-            <h3 className="mb-8 text-3xl font-bold text-brand-dark sm:text-4xl">
+            <h3 className="mb-8 text-3xl font-medium text-brand-primary sm:text-4xl">
               {t("faq.title")}
             </h3>
 

@@ -45,6 +45,7 @@ export function HighlightsStrip() {
   return (
     <section className="bg-white py-12 sm:py-16" aria-label={t("aria")}>
       <Container>
+        <h2 className="sr-only">{t("aria")}</h2>
         <div className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-3">
           {CARDS.map((c) => {
             const Icon = c.Icon;

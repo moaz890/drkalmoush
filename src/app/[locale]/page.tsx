@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { getSiteUrl } from "@/lib/site";
 import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { HighlightsStrip } from "@/components/sections/HighlightsStrip";
 import { About } from "@/components/sections/About";
@@ -74,6 +75,7 @@ export default async function HomePage({ params }: Props) {
         <ClinicHoursFaq />
         {/* Phase 6+ sections next */}
       </main>
+      <Footer />
     </>
   );
 }

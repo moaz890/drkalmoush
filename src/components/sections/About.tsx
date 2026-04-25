@@ -19,9 +19,9 @@ export function About() {
   const videoFromX = isRtl ? -40 : 40;
 
   return (
-    <section id="about" className="bg-white py-16 sm:py-20">
+    <section id="about" className="py-16 sm:py-24">
       <Container>
-        <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-12 lg:gap-10">
+        <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-12 lg:gap-12">
           {/* Column 1 — Surgery images */}
           <motion.div
             initial={{ opacity: 0, x: imagesFromX }}
@@ -36,14 +36,14 @@ export function About() {
                 alt={t("surgeryAlt1")}
                 width={400}
                 height={280}
-                className="h-auto w-full rounded-2xl object-cover shadow-md"
+                className="h-auto w-full rounded-3xl object-cover shadow-[var(--shadow-whisper)]"
               />
               <Image
                 src="/surgery-2.png"
                 alt={t("surgeryAlt2")}
                 width={400}
                 height={280}
-                className="h-auto w-full rounded-2xl object-cover shadow-md"
+                className="h-auto w-full rounded-3xl object-cover shadow-[var(--shadow-whisper)]"
               />
             </div>
 
@@ -54,7 +54,7 @@ export function About() {
                 alt={t("sealAlt")}
                 width={96}
                 height={96}
-                className="h-20 w-20 rounded-full border-4 border-white object-cover shadow-lg sm:h-24 sm:w-24"
+                className="h-20 w-20 rounded-full border-4 border-surface-ivory object-cover shadow-[var(--shadow-whisper)] sm:h-24 sm:w-24"
               />
             </div>
           </motion.div>
@@ -71,7 +71,7 @@ export function About() {
                 <span>{t("topLabel")}</span>
                 <FaHeartbeat className="text-lg text-red-500" />
               </div>
-              <h2 className="mb-8 text-3xl font-bold leading-tight text-brand-dark sm:text-2xl lg:text-3xl text-end">
+              <h2 className="mb-8 text-3xl font-medium leading-tight text-brand-primary sm:text-4xl text-end">
                 {t("headline")}
               </h2>
             </motion.div>
@@ -123,7 +123,7 @@ export function About() {
                     <div className="text-xs text-brand-muted">
                       {t("bookingLabel")}
                     </div>
-                    <div className="text-base font-bold text-brand-dark" dir="ltr">
+                    <div className="text-base font-semibold text-brand-primary" dir="ltr">
                       {WHATSAPP_DISPLAY}
                     </div>
                   </div>
@@ -137,7 +137,7 @@ export function About() {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
               >
-                <div className="overflow-hidden rounded-2xl bg-brand-secondary shadow-xl">
+                <div className="overflow-hidden rounded-3xl bg-brand-secondary shadow-[var(--shadow-whisper)]">
                   <div className="relative aspect-[3/4]">
                     {!play ? (
                       <button

@@ -47,14 +47,14 @@ export function Services() {
   const activeDetails = openKey ? t(`items.${openKey}.details` as never) : "";
 
   return (
-    <section id="services" className="bg-slate-50/50 py-16 sm:py-20">
+    <section id="services" className="py-16 sm:py-24">
       <Container>
         <div className="mb-12 text-center">
           <div className="flex items-center justify-center gap-2 text-sm font-semibold text-brand-accent">
             <span>{t("doctorName")}</span>
             <FaHeartbeat className="text-lg text-red-500" />
           </div>
-          <h2 className="mt-3 text-2xl font-bold text-brand-dark sm:text-3xl">
+          <h2 className="mt-3 text-3xl font-medium text-brand-primary sm:text-4xl">
             {t("title")}
           </h2>
         </div>
@@ -69,12 +69,12 @@ export function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.5, ease: "easeOut", delay: idx * 0.1 }}
-                className="group rounded-2xl border border-slate-100 bg-white p-6 shadow-sm"
+                className="group rounded-3xl bg-surface-ivory p-6 shadow-[var(--shadow-whisper)]"
               >
                 <div className="flex flex-col gap-5 md:flex-row md:items-center">
                   {/* Icon */}
                   <div className="flex items-center justify-center md:justify-start">
-                    <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-slate-50">
+                    <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-surface-sand shadow-[0px_0px_0px_1px_var(--color-ring-warm)]">
                       <Icon className="h-9 w-9 text-brand-primary transition-transform duration-700 ease-out group-hover:rotate-[360deg]" />
                     </div>
                   </div>
@@ -111,7 +111,7 @@ export function Services() {
                   <div className="flex justify-end md:justify-start">
                     <Button
                       variant="outline"
-                      className="w-44 px-8 py-2 hover:bg-brand-primary hover:text-white hover:border-brand-primary"
+                      className="w-44 px-8 py-2"
                       onClick={() => setOpenKey(s.key)}
                     >
                       {t("more")}
@@ -148,7 +148,7 @@ export function Services() {
 
           <div className="pt-2">
             <a href={WHATSAPP_URL} target="_blank" rel="noreferrer">
-              <Button variant="gold">{t("bookNow")}</Button>
+              <Button variant="primary">{t("bookNow")}</Button>
             </a>
           </div>
         </div>

@@ -52,11 +52,11 @@ export function StatsBar() {
       <Container>
         <div
           ref={ref}
-          className="grid gap-4 rounded-3xl border border-brand-secondary/10 bg-white p-6 shadow-sm sm:grid-cols-2 lg:grid-cols-4"
+          className="grid gap-4 rounded-3xl bg-surface-ivory p-6 shadow-[var(--shadow-whisper)] sm:grid-cols-2 lg:grid-cols-4"
         >
           {items.map((it, idx) => (
-            <div key={it.label} className="rounded-2xl bg-brand-secondary/3 p-5">
-              <div className="text-3xl font-semibold tracking-tight text-brand-secondary">
+            <div key={it.label} className="rounded-2xl bg-surface-sand p-5 shadow-[0px_0px_0px_1px_var(--color-ring-warm)]">
+              <div className="text-3xl font-medium tracking-tight text-brand-primary">
                 {values[idx].toLocaleString()}
                 {idx === 0 ? "+" : ""}
               </div>

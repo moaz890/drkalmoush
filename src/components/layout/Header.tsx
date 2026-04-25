@@ -9,7 +9,7 @@ import { usePathname, useRouter } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
 import { Button } from "@/components/ui/Button";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
-import { BRANCHES, WHATSAPP_DISPLAY, WHATSAPP_URL } from "@/lib/constants";
+import { BRANCHES, MAPS, WHATSAPP_DISPLAY, WHATSAPP_URL } from "@/lib/constants";
 
 type NavItem = { key: string; href: string; label: string };
 
@@ -104,9 +104,12 @@ export function Header() {
                 </div>
                 <div className="flex items-stretch rounded-2xl bg-white">
                   {BRANCHES.map((b, idx) => (
-                    <div
+                    <a
                       key={b.key}
-                      className="relative cursor-pointer px-4 py-2"
+                      href={MAPS[b.key as keyof typeof MAPS] ?? "#"}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="relative px-4 py-2 transition-colors hover:bg-surface-sand/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-focus-blue)]"
                     >
                       {idx !== 0 ? (
                         <span className="absolute inset-y-0 start-0 flex items-center">
@@ -126,7 +129,7 @@ export function Header() {
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </a>
                   ))}
                 </div>
               </div>
