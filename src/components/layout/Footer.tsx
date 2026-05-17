@@ -19,6 +19,7 @@ import {
   WHATSAPP_DISPLAY,
   WHATSAPP_URL,
 } from "@/lib/constants";
+import { Link } from "@/i18n/navigation";
 
 type LinkItem = { key: string; href: string; label: string };
 
@@ -37,7 +38,7 @@ export function Footer() {
     { key: "testimonials", href: "#testimonials", label: tNav("testimonials") },
     { key: "videos", href: "#videos", label: tNav("videos") },
     { key: "conferences", href: "#conferences", label: tNav("conferences") },
-    { key: "blog", href: "#blog", label: tNav("blog") },
+    { key: "blog", href: "/blog", label: tNav("blog") },
     { key: "workshop", href: "#workshop", label: tNav("workshop") },
   ];
 
@@ -85,22 +86,32 @@ export function Footer() {
             </div>
 
             {/* Useful links */}
-            <div className="lg:col-span-2">
-              <h3 className="text-sm font-medium text-[#faf9f5]">{t("usefulLinks")}</h3>
+            <nav className="lg:col-span-2" aria-labelledby="footer-useful-links-title">
+              <p id="footer-useful-links-title" className="text-sm font-medium text-[#faf9f5]">
+                {t("usefulLinks")}
+              </p>
               <ul className="mt-4 space-y-2 text-sm">
                 {usefulLinks.map((it) => (
                   <li key={it.key}>
-                    <a className="hover:text-[#faf9f5]" href={it.href}>
-                      {it.label}
-                    </a>
+                    {it.href.startsWith("/") ? (
+                      <Link className="hover:text-[#faf9f5]" href={it.href}>
+                        {it.label}
+                      </Link>
+                    ) : (
+                      <a className="hover:text-[#faf9f5]" href={it.href}>
+                        {it.label}
+                      </a>
+                    )}
                   </li>
                 ))}
               </ul>
-            </div>
+            </nav>
 
             {/* Services */}
-            <div className="lg:col-span-3">
-              <h3 className="text-sm font-medium text-[#faf9f5]">{t("services")}</h3>
+            <nav className="lg:col-span-3" aria-labelledby="footer-services-title">
+              <p id="footer-services-title" className="text-sm font-medium text-[#faf9f5]">
+                {t("services")}
+              </p>
               <ul className="mt-4 space-y-2 text-sm">
                 {services.map((it) => (
                   <li key={it.key}>
@@ -110,11 +121,13 @@ export function Footer() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </nav>
 
             {/* Clinics */}
-            <div className="lg:col-span-3">
-              <h3 className="text-sm font-medium text-[#faf9f5]">{t("clinics")}</h3>
+            <section className="lg:col-span-3" aria-labelledby="footer-clinics-title">
+              <p id="footer-clinics-title" className="text-sm font-medium text-[#faf9f5]">
+                {t("clinics")}
+              </p>
               <ul className="mt-4 space-y-3 text-sm">
                 {BRANCHES.map((b) => (
                   <li key={b.key} className="leading-relaxed">
@@ -134,7 +147,7 @@ export function Footer() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </section>
           </div>
 
           {/* Contact + CTAs */}

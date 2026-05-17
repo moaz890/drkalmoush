@@ -50,3 +50,39 @@ export const SOCIALS = {
   instagram: "https://www.instagram.com/dr.abdelfattahmorsi",
   youtube: "https://www.youtube.com/@abd-elfattahkalmoush9985",
 } as const;
+
+/** Featured clinic YouTube shorts/clips — order matches `videosSection.items` titles in messages */
+export const YOUTUBE_CLINIC_VIDEOS = [
+  {
+    id: "tmztvUB7eBU",
+    watchUrl: "https://youtu.be/tmztvUB7eBU?si=6gtxFEG5Y1m7qsk8",
+  },
+  {
+    id: "mZVPE5GoHdE",
+    watchUrl: "https://youtu.be/mZVPE5GoHdE?si=-0uVT7xzpPQeqOaw",
+  },
+  {
+    id: "a95SNLfy2Cg",
+    watchUrl: "https://youtu.be/a95SNLfy2Cg?si=bbMNZDXC_wFJ9V5u",
+  },
+  {
+    id: "OvW4W97XD1o",
+    watchUrl: "https://youtu.be/OvW4W97XD1o?si=dx7B3uA4cNMfnmTO",
+  },
+  {
+    id: "csWPaSl_OQk",
+    watchUrl: "https://youtu.be/csWPaSl_OQk?si=_MmWiEM7Q7AhPKK-",
+  },
+  {
+    id: "CQdkGuMZuFM",
+    watchUrl: "https://youtu.be/CQdkGuMZuFM?si=Qc65aw7jw2fu4CIo",
+  },
+] as const;
+
+export const BLOG_SLUGS = [
+  "bariatric-surgery-options",
+  "laparoscopic-surgery-modern-care",
+  "hiatal-hernia-reflux-relief",
+] as const;
+
+export type BlogSlug = (typeof BLOG_SLUGS)[number];

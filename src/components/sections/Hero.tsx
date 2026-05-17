@@ -17,7 +17,17 @@ const SLIDE_IMAGES = [
 
 const SLIDE_NS = ["slide1", "slide2", "slide3"] as const;
 
-export function Hero() {
+export type HeroPageVariant = "home" | "inner";
+
+export type HeroProps = {
+  /**
+   * `home` — `#home` anchor + slide title is `h1` (default).
+   * `inner` — full same UI as home; no section id; slide title is styled text so the route can own the real `h1`.
+   */
+  page?: HeroPageVariant;
+};
+
+export function Hero({ page = "home" }: HeroProps) {
   const t = useTranslations("hero");
   const locale = useLocale();
   const reduceMotion = useReducedMotion();
@@ -45,8 +55,18 @@ export function Hero() {
     return () => window.clearInterval(id);
   }, [reduceMotion, slides.length]);
 
+  const isHome = page === "home";
+  const sectionProps = isHome ? { id: "home" as const } : {};
+  const homeHash = (hash: string) => `/${locale}${hash.startsWith("#") ? hash : `#${hash}`}`;
+
+  const slideTitleClassName =
+    "mt-3 text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl";
+
   return (
-    <section id="home" className="relative h-[100svh] min-h-screen overflow-hidden">
+    <section
+      {...sectionProps}
+      className="relative h-[100svh] min-h-screen overflow-hidden"
+    >
       <div className="absolute inset-0">
         <Image
           src="/hero.png"
@@ -83,23 +103,67 @@ export function Hero() {
                         <p className="text-sm font-semibold text-brand-accent sm:text-base">
                           {slides[active].tagline}
                         </p>
-                        <h1 className="mt-3 text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
-                          {slides[active].title}
-                        </h1>
+                        {isHome ? (
+                          <h1 className={slideTitleClassName}>{slides[active].title}</h1>
+                        ) : (
+                          <p className={slideTitleClassName}>{slides[active].title}</p>
+                        )}
                         <p className="mt-4 text-base leading-relaxed text-brand-accent/90 sm:text-lg">
                           {slides[active].subtitle}
                         </p>
 
                         <div className="mt-8 flex flex-wrap gap-3">
-                          <a href="#clinics">
+                          <a href={homeHash("#clinics")}>
                             <Button variant="gold" size="lg">
                               {t("ctaBook")}
                             </Button>
                           </a>
-                          <a href="#contact">
+                          <a href={homeHash("#contact")}>
                             <Button variant="onDark" size="lg">
                               {t("ctaBookOnline")}
                             </Button>
+                          </a>
+                        </div>
+
+                        <div
+                          className="mt-6 flex items-center gap-3 lg:hidden"
+                          aria-label={t("socialsAria")}
+                        >
+                          <a
+                            href={SOCIALS.facebook}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/25 text-white/90 transition-transform active:scale-95"
+                            aria-label={t("socialFacebook")}
+                          >
+                            <FaFacebook className="h-4 w-4" />
+                          </a>
+                          <a
+                            href={SOCIALS.tiktok}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/25 text-white/90 transition-transform active:scale-95"
+                            aria-label={t("socialTiktok")}
+                          >
+                            <FaTiktok className="h-4 w-4" />
+                          </a>
+                          <a
+                            href={SOCIALS.instagram}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/25 text-white/90 transition-transform active:scale-95"
+                            aria-label={t("socialInstagram")}
+                          >
+                            <FaInstagram className="h-4 w-4" />
+                          </a>
+                          <a
+                            href={SOCIALS.youtube}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/25 text-white/90 transition-transform active:scale-95"
+                            aria-label={t("socialYoutube")}
+                          >
+                            <FaYoutube className="h-4 w-4" />
                           </a>
                         </div>
                       </motion.div>

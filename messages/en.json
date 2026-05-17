@@ -7,6 +7,7 @@
     "description": "Professor of General Surgery and consultant in bariatric, laparoscopic, GI and hepatobiliary surgery."
   },
   "nav": {
+    "mainNav": "Main navigation",
     "home": "Home",
     "about": "About & CV",
     "services": "Our Services",
@@ -123,6 +124,119 @@
         "details": "Laparoscopic (no traditional open surgery)\nLess pain after surgery\nFaster recovery and return to daily life\nEffective relief for reflux/heartburn\nDurable long-term results\nRepositions the stomach and repairs the diaphragm opening precisely"
       }
     }
+  },
+  "videosSection": {
+    "title": "Videos",
+    "subtitle": "Selected clips from our practice — tap play to watch in a popup.",
+    "viewMore": "View more videos",
+    "playVideo": "Play video",
+    "closePlayer": "Close video player",
+    "openOnYoutube": "Watch on YouTube",
+    "fallbackTitle": "Video {number}",
+    "items": [
+      { "title": "Clinic highlight — introduction" },
+      { "title": "Patient education — surgery overview" },
+      { "title": "Laparoscopic & bariatric insights" },
+      { "title": "Recovery & lifestyle tips" },
+      { "title": "FAQ — candid discussion" },
+      { "title": "Expert commentary — procedures" }
+    ]
+  },
+  "videosPage": {
+    "metaTitle": "Videos",
+    "metaDescription": "Watch educational videos from Prof. Dr. Abd-Elfattah Kalmoush on bariatric surgery, laparoscopy, and patient care.",
+    "title": "All videos",
+    "subtitle": "Browse our video library. Select any thumbnail to play in the popup viewer."
+  },
+  "blog": {
+    "metaTitle": "Blog",
+    "metaDescription": "Educational articles on bariatric surgery, advanced laparoscopy, and hiatal hernia care by Prof. Dr. Abd-Elfattah Kalmoush.",
+    "listTitle": "Clinical blog",
+    "listSubtitle": "Short articles on procedures the clinic focuses on — for general education only; not a substitute for an in-person consultation.",
+    "readArticle": "Read full article",
+    "readTime": "{minutes} min read",
+    "backToBlog": "Back to blog",
+    "ctaServices": "View our medical services",
+    "disclaimer": "This content is for general information only and does not replace medical advice tailored to your situation.",
+    "articles": {
+      "bariatric-surgery-options": {
+        "title": "Bariatric surgery: realistic options and what to expect",
+        "excerpt": "How sleeve gastrectomy and gastric bypass differ, who may be a candidate, and why long-term follow-up matters.",
+        "date": "January 2025",
+        "readMinutes": "9",
+        "paragraphs": [
+          "Bariatric surgery has become one of the most evidence-based treatments for severe obesity and many related conditions such as type 2 diabetes and hypertension. The goal is not only weight loss on the scale, but sustainable metabolic improvement with a structured plan before and after the operation.",
+          "Two widely used procedures are sleeve gastrectomy (removing part of the stomach to reduce hunger signals) and gastric bypass (creating a smaller stomach pouch and rerouting a segment of intestine). The choice depends on your anatomy, comorbidities, eating patterns, and risk profile — it should always be individualized after specialist assessment.",
+          "Candidates are typically assessed using BMI alongside conditions like diabetes, sleep apnea, or joint disease. Surgery is never a shortcut: it works best when combined with dietary changes, vitamin and mineral monitoring, and regular follow-up with your surgical team and dietitian.",
+          "If you are considering bariatric surgery, bring your medical history, current medications, and questions about recovery time and lifestyle. A transparent discussion of benefits, risks, and expectations is the foundation of safe, modern bariatric care."
+        ]
+      },
+      "laparoscopic-surgery-modern-care": {
+        "title": "Laparoscopic surgery: smaller incisions, structured recovery",
+        "excerpt": "Why many abdominal operations today are performed with a camera and fine instruments — and what patients should plan for.",
+        "date": "February 2025",
+        "readMinutes": "8",
+        "paragraphs": [
+          "Laparoscopic (keyhole) surgery uses small ports in the abdominal wall and a camera to guide precise instruments inside the abdomen. For many procedures this means less postoperative pain, shorter hospital stays, and a quicker return to light daily activity compared with traditional open surgery.",
+          "Not every patient or diagnosis is suitable for a fully laparoscopic approach; sometimes a planned open operation or a hybrid technique remains the safer choice. Your surgeon will explain the plan based on imaging, prior operations, and overall health.",
+          "Recovery still follows biological rules: healing of tissue planes, gradual return of bowel function, and wound care matter regardless of incision size. Following activity guidance, pain control as prescribed, and recognizing warning signs (fever, worsening pain, shortness of breath) protects your outcome.",
+          "Prof. Dr. Kalmoush’s practice emphasizes advanced laparoscopic techniques within a university-hospital setting, combining technical precision with clear communication so patients understand each phase of care."
+        ]
+      },
+      "hiatal-hernia-reflux-relief": {
+        "title": "Hiatal hernia and reflux: when surgery can restore quality of life",
+        "excerpt": "How a sliding hiatal hernia relates to heartburn, when medications are enough, and what laparoscopic repair can achieve.",
+        "date": "March 2025",
+        "readMinutes": "7",
+        "paragraphs": [
+          "A hiatal hernia occurs when part of the stomach slides upward through the opening in the diaphragm where the esophagus passes. Many people have a small sliding hernia without symptoms; others experience reflux, regurgitation, chest discomfort, or disturbed sleep.",
+          "Initial treatment often includes lifestyle measures and acid-suppressing medication. Surgery is considered when symptoms remain disabling despite optimized medical therapy, when patients prefer a durable anatomical solution, or when complications such as severe esophagitis or large hernias are present — always after thorough endoscopic and sometimes radiologic evaluation.",
+          "Laparoscopic hiatal hernia repair aims to bring the stomach back below the diaphragm, tighten the esophageal hiatus appropriately, and in many cases reinforce the valve mechanism at the gastro-esophageal junction. The exact technique is tailored to hernia size and esophageal motility.",
+          "Expected benefits include reduced reflux burden for suitable candidates, but every operation carries risks that must be weighed individually. If reflux or swallowing problems affect your daily life, a specialist consultation is the right next step."
+        ]
+      }
+    }
+  },
+  "testimonialsSection": {
+    "title": "Patient testimonials",
+    "subtitle": "Feedback from people we have had the privilege to care for — examples for illustration.",
+    "carouselAria": "Patient testimonials carousel",
+    "dotsAria": "Carousel pages",
+    "prev": "Previous testimonials",
+    "next": "Next testimonials",
+    "goToPage": "Go to testimonials page {number}",
+    "items": [
+      {
+        "name": "Ahmed K.",
+        "role": "Sleeve gastrectomy — Cairo",
+        "quote": "Clear explanations before surgery, calm staff, and follow-up that actually answers questions. I felt informed every step of the way."
+      },
+      {
+        "name": "Mariam S.",
+        "role": "Hiatal hernia repair — Zagazig",
+        "quote": "Recovery was smoother than I expected. The team checked on me regularly and the laparoscopic approach made a real difference."
+      },
+      {
+        "name": "Omar H.",
+        "role": "Bariatric consultation — Hehya",
+        "quote": "Honest advice without pressure. We discussed risks and nutrition realistically, which helped me commit to the lifestyle changes."
+      },
+      {
+        "name": "Layla M.",
+        "role": "Post-operative follow-up — Cairo",
+        "quote": "Professional and respectful care. Appointments ran on time and I always understood my next milestones."
+      },
+      {
+        "name": "Youssef T.",
+        "role": "Laparoscopic procedure — Zagazig",
+        "quote": "Skilled surgical team and a clean, organized clinic. My family appreciated how clearly everything was communicated."
+      },
+      {
+        "name": "Nour A.",
+        "role": "Weight-loss surgery journey — Cairo",
+        "quote": "From first visit to six months later, support was consistent. The dietitian coordination made the process less overwhelming."
+      }
+    ]
   },
   "footer": {
     "aboutText": "Professor of General Surgery and consultant in bariatric, laparoscopic, GI and hepatobiliary surgery. Book appointments across our clinics or contact us on WhatsApp.",

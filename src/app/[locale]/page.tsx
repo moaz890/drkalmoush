@@ -9,6 +9,8 @@ import { HighlightsStrip } from "@/components/sections/HighlightsStrip";
 import { About } from "@/components/sections/About";
 import { Services } from "@/components/sections/Services";
 import { ClinicHoursFaq } from "@/components/sections/ClinicHoursFaq";
+import { Testimonials } from "@/components/sections/Testimonials";
+import { VideosSection } from "@/components/sections/VideosSection";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -72,8 +74,9 @@ export default async function HomePage({ params }: Props) {
         <HighlightsStrip />
         <About />
         <Services />
+        <Testimonials />
+        <VideosSection />
         <ClinicHoursFaq />
-        {/* Phase 6+ sections next */}
       </main>
       <Footer />
     </>

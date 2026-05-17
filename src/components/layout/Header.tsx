@@ -29,7 +29,7 @@ export function Header() {
       { key: "testimonials", href: "#testimonials", label: tNav("testimonials") },
       { key: "videos", href: "#videos", label: tNav("videos") },
       { key: "conferences", href: "#conferences", label: tNav("conferences") },
-      { key: "blog", href: "#blog", label: tNav("blog") },
+      { key: "blog", href: "/blog", label: tNav("blog") },
       { key: "workshop", href: "#workshop", label: tNav("workshop") }
     ],
     [tNav]
@@ -60,6 +60,14 @@ export function Header() {
       return;
     }
     window.location.hash = href;
+  };
+
+  const navigateNav = (href: string) => {
+    if (href.startsWith("/")) {
+      router.push(href);
+      return;
+    }
+    goToHash(href);
   };
 
   const showCompact = isScrolled;
@@ -164,7 +172,7 @@ export function Header() {
               {items.map((it) => (
                 <button
                   key={it.key}
-                  onClick={() => goToHash(it.href)}
+                  onClick={() => navigateNav(it.href)}
                   className="group relative cursor-pointer text-base font-semibold text-brand-primary transition-colors hover:text-brand-accent"
                 >
                   {renderLabel(it)}
@@ -218,30 +226,35 @@ export function Header() {
             className="fixed top-0 z-50 w-full pt-3"
           >
             <div className="mx-4 overflow-hidden rounded-2xl border border-brand-secondary/10 bg-white/95 shadow-sm backdrop-blur sm:mx-6 lg:mx-8">
-              <div className="flex h-16 w-full items-center justify-between px-4 sm:px-6 lg:px-8">
-                <div className="flex items-center gap-3">
+              <div className="flex h-16 w-full items-center gap-2 px-4 sm:px-6 lg:px-8">
+                <div className="flex shrink-0 items-center gap-3">
                   <Image
                     src="/logo.jpeg"
                     alt={tCommon("brandName")}
                     width={60}
                     height={60}
-                    className="h-24 w-30 rounded-xl object-cover shadow-sm"
+                    className="h-14 w-14 rounded-xl object-cover shadow-sm sm:h-16 sm:w-16"
                   />
                 </div>
 
-                <nav className="hidden items-center gap-4 xl:flex">
-                  {items.map((it) => (
-                    <button
-                      key={it.key}
-                      onClick={() => goToHash(it.href)}
-                      className="group cursor-pointer text-base font-semibold text-brand-primary transition-colors hover:text-brand-accent"
-                    >
-                      {renderLabel(it)}
-                    </button>
-                  ))}
+                <nav
+                  className="hidden min-h-0 min-w-0 flex-1 items-center justify-center overflow-x-auto overscroll-x-contain [-ms-overflow-style:none] [scrollbar-width:none] lg:flex [&::-webkit-scrollbar]:hidden"
+                  aria-label={tNav("mainNav")}
+                >
+                  <div className="flex items-center gap-2 px-1 sm:gap-3">
+                    {items.map((it) => (
+                      <button
+                        key={it.key}
+                        onClick={() => navigateNav(it.href)}
+                        className="group shrink-0 cursor-pointer whitespace-nowrap text-sm font-semibold text-brand-primary transition-colors hover:text-brand-accent sm:text-base"
+                      >
+                        {renderLabel(it)}
+                      </button>
+                    ))}
+                  </div>
                 </nav>
 
-                <div className="flex items-center gap-2">
+                <div className="ml-auto flex shrink-0 items-center gap-2">
                   <div className="hidden items-center gap-2 md:flex">
                     <a href="#clinics">
                       <Button variant="primary" size="sm">
@@ -295,7 +308,7 @@ export function Header() {
                     key={it.key}
                     onClick={() => {
                       setMenuOpen(false);
-                      goToHash(it.href);
+                      navigateNav(it.href);
                     }}
                     className="w-full rounded-xl px-3 py-2 text-start text-sm hover:bg-brand-secondary/5"
                   >
