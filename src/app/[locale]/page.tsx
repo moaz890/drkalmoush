@@ -1,7 +1,9 @@
 import { setRequestLocale } from "next-intl/server";
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { getSiteUrl } from "@/lib/site";
+import { medicalClinicSchema, physicianSchema } from "@/lib/seo/schema";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
@@ -30,6 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       languages: {
         ar: `${base}/ar`,
         en: `${base}/en`,
+        "x-default": `${base}/ar`,
       },
     },
     openGraph: {
@@ -68,6 +71,12 @@ export default async function HomePage({ params }: Props) {
 
   return (
     <>
+      <JsonLd
+        data={[
+          physicianSchema(locale as "ar" | "en"),
+          medicalClinicSchema(locale as "ar" | "en"),
+        ]}
+      />
       <Header />
       <main>
         <Hero />

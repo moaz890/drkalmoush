@@ -3,9 +3,12 @@ import { setRequestLocale } from "next-intl/server";
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { Link } from "@/i18n/navigation";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { getSiteUrl } from "@/lib/site";
 import { BLOG_SLUGS, type BlogSlug } from "@/lib/constants";
 import { routing } from "@/i18n/routing";
+import { getPageById } from "@/lib/seo/registry";
+import { breadcrumbSchema } from "@/lib/seo/schema";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
@@ -43,6 +46,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       languages: {
         ar: `${base}/ar/blog/${slug}`,
         en: `${base}/en/blog/${slug}`,
+        "x-default": `${base}/ar/blog/${slug}`,
       },
     },
     openGraph: {
@@ -54,6 +58,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description,
       images: [{ url: "/logo.jpeg", width: 512, height: 512, alt: tc("brandName") }],
     },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["/logo.jpeg"],
+    },
+    robots: { index: true, follow: true },
   };
 }
 
@@ -66,14 +77,49 @@ export default async function BlogArticlePage({ params }: Props) {
   }
 
   const t = await getTranslations({ locale, namespace: "blog" });
-  const paragraphs = t.raw(`articles.${slug}.paragraphs` as never) as string[];
+  const tc = await getTranslations({ locale, namespace: "common" });
+  const articleMeta = t.raw(`articles.${slug}` as never) as {
+    paragraphs: string[];
+    relatedSeoPage?: string;
+  };
+  const paragraphs = articleMeta.paragraphs;
+  const relatedSeoPageId = articleMeta.relatedSeoPage;
 
-  if (!Array.isArray(paragraphs)) {
-    notFound();
-  }
+  const relatedSeoPage = relatedSeoPageId
+    ? getPageById(relatedSeoPageId)
+    : undefined;
+
+  const schemaArticle = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: title,
+    description,
+    url: articleUrl,
+    image: `${base}/logo.jpeg`,
+    author: {
+      "@type": "Physician",
+      name: loc === "ar" ? "أ.د. عبد الفتاح قلموش" : "Prof. Dr. Abd-Elfattah Kalmoush",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: tc("brandName"),
+      logo: { "@type": "ImageObject", url: `${base}/logo.jpeg` },
+    },
+    inLanguage: loc === "ar" ? "ar" : "en",
+  };
 
   return (
     <>
+      <JsonLd
+        data={[
+          schemaArticle,
+          breadcrumbSchema([
+            { name: loc === "ar" ? "الرئيسية" : "Home", url: `${base}/${locale}` },
+            { name: loc === "ar" ? "المدونة" : "Blog", url: `${base}/${locale}/blog` },
+            { name: title, url: articleUrl },
+          ]),
+        ]}
+      />
       <Header />
       <Hero page="inner" />
       <main className="pb-20 pt-10 sm:pb-24 sm:pt-12">
@@ -95,10 +141,10 @@ export default async function BlogArticlePage({ params }: Props) {
                 {t("readTime", { minutes: t(`articles.${slug}.readMinutes` as never) })}
               </p>
               <h1 className="mt-4 text-3xl font-medium leading-tight text-brand-primary sm:text-4xl">
-                {t(`articles.${slug}.title` as never)}
+                {title}
               </h1>
               <p className="mt-4 text-lg leading-relaxed text-brand-muted">
-                {t(`articles.${slug}.excerpt` as never)}
+                {description}
               </p>
             </header>
 
@@ -112,12 +158,20 @@ export default async function BlogArticlePage({ params }: Props) {
               {t("disclaimer")}
             </p>
 
-            <div className="mt-10">
+            <div className="mt-10 flex flex-wrap gap-3">
+              {relatedSeoPage ? (
+                <a
+                  href={`/${locale}/${relatedSeoPage.slug[loc]}`}
+                  className="inline-flex h-11 items-center justify-center rounded-xl bg-brand-accent px-6 text-sm font-medium text-surface-ivory shadow-[0px_0px_0px_1px_var(--color-brand-accent)] transition-[filter] hover:brightness-95"
+                >
+                  {relatedSeoPage.h1[loc]}
+                </a>
+              ) : null}
               <Link
-                href={`/${locale}#services`}
-                className="inline-flex h-11 items-center justify-center rounded-xl bg-brand-accent px-6 text-sm font-medium text-surface-ivory shadow-[0px_0px_0px_1px_var(--color-brand-accent)] transition-[filter] hover:brightness-95"
+                href="/blog"
+                className="inline-flex h-11 items-center justify-center rounded-xl border border-brand-secondary/20 px-6 text-sm font-medium text-brand-primary transition-colors hover:bg-surface-sand/40"
               >
-                {t("ctaServices")}
+                {t("backToBlog")}
               </Link>
             </div>
           </div>

@@ -3,8 +3,8 @@
     "brandName": "Dr. Abd-Elfattah Kalmoush Clinic"
   },
   "metadata": {
-    "title": "Prof. Dr. Abd-Elfattah Kalmoush",
-    "description": "Professor of General Surgery and consultant in bariatric, laparoscopic, GI and hepatobiliary surgery."
+    "title": "Prof. Dr. Abd-Elfattah Kalmoush | Bariatric & Endoscopy Surgery Egypt",
+    "description": "Professor of General Surgery and bariatric consultant — gastric sleeve, bypass, balloon, gastroscopy and colonoscopy. Clinics in Cairo, Zagazig and Hehya."
   },
   "nav": {
     "mainNav": "Main navigation",
@@ -164,6 +164,7 @@
         "excerpt": "How sleeve gastrectomy and gastric bypass differ, who may be a candidate, and why long-term follow-up matters.",
         "date": "January 2025",
         "readMinutes": "9",
+        "relatedSeoPage": "bariatric-surgery",
         "paragraphs": [
           "Bariatric surgery has become one of the most evidence-based treatments for severe obesity and many related conditions such as type 2 diabetes and hypertension. The goal is not only weight loss on the scale, but sustainable metabolic improvement with a structured plan before and after the operation.",
           "Two widely used procedures are sleeve gastrectomy (removing part of the stomach to reduce hunger signals) and gastric bypass (creating a smaller stomach pouch and rerouting a segment of intestine). The choice depends on your anatomy, comorbidities, eating patterns, and risk profile — it should always be individualized after specialist assessment.",
@@ -176,6 +177,7 @@
         "excerpt": "Why many abdominal operations today are performed with a camera and fine instruments — and what patients should plan for.",
         "date": "February 2025",
         "readMinutes": "8",
+        "relatedSeoPage": "endoscopy",
         "paragraphs": [
           "Laparoscopic (keyhole) surgery uses small ports in the abdominal wall and a camera to guide precise instruments inside the abdomen. For many procedures this means less postoperative pain, shorter hospital stays, and a quicker return to light daily activity compared with traditional open surgery.",
           "Not every patient or diagnosis is suitable for a fully laparoscopic approach; sometimes a planned open operation or a hybrid technique remains the safer choice. Your surgeon will explain the plan based on imaging, prior operations, and overall health.",
@@ -188,11 +190,51 @@
         "excerpt": "How a sliding hiatal hernia relates to heartburn, when medications are enough, and what laparoscopic repair can achieve.",
         "date": "March 2025",
         "readMinutes": "7",
+        "relatedSeoPage": "hiatal-hernia",
         "paragraphs": [
           "A hiatal hernia occurs when part of the stomach slides upward through the opening in the diaphragm where the esophagus passes. Many people have a small sliding hernia without symptoms; others experience reflux, regurgitation, chest discomfort, or disturbed sleep.",
           "Initial treatment often includes lifestyle measures and acid-suppressing medication. Surgery is considered when symptoms remain disabling despite optimized medical therapy, when patients prefer a durable anatomical solution, or when complications such as severe esophagitis or large hernias are present — always after thorough endoscopic and sometimes radiologic evaluation.",
           "Laparoscopic hiatal hernia repair aims to bring the stomach back below the diaphragm, tighten the esophageal hiatus appropriately, and in many cases reinforce the valve mechanism at the gastro-esophageal junction. The exact technique is tailored to hernia size and esophageal motility.",
           "Expected benefits include reduced reflux burden for suitable candidates, but every operation carries risks that must be weighed individually. If reflux or swallowing problems affect your daily life, a specialist consultation is the right next step."
+        ]
+      },
+      "gastric-sleeve-complete-guide": {
+        "title": "Complete guide to gastric sleeve surgery",
+        "excerpt": "Everything you need to know about sleeve gastrectomy: procedure, candidates, weight loss and follow-up.",
+        "date": "April 2025",
+        "readMinutes": "10",
+        "relatedSeoPage": "gastric-sleeve",
+        "paragraphs": [
+          "Gastric sleeve surgery has become the most common bariatric procedure in Egypt and worldwide. It is performed laparoscopically through small incisions, removing about 80% of the stomach to create a narrow tube.",
+          "Typical candidates have BMI 40+ or 35+ with comorbidities. Structured diet and exercise should be attempted first. Assessment includes gastroscopy and comprehensive labs.",
+          "Expected results: 60–70% excess weight loss within 12–18 months. Diabetes and blood pressure improve for many patients. Nutritional and medical follow-up is essential lifelong.",
+          "For full details on the procedure, cost and comparison with bypass, see our dedicated pages or book a consultation with Prof. Kalmoush."
+        ]
+      },
+      "colonoscopy-early-detection": {
+        "title": "Colonoscopy: early detection of colon cancer",
+        "excerpt": "Why colonoscopy matters after age 45 and how to prepare for screening.",
+        "date": "May 2025",
+        "readMinutes": "7",
+        "relatedSeoPage": "colonoscopy",
+        "paragraphs": [
+          "Colon cancer is one of the most curable cancers when detected early. Colonoscopy examines the entire colon and removes polyps before they become malignant.",
+          "Screening is recommended for everyone over 45, or with a family history of colon cancer, or when bowel habits change or bleeding occurs.",
+          "Preparation matters: solid diet then clear liquids for two days, then bowel prep solution. Following instructions ensures an accurate exam.",
+          "Prof. Kalmoush performs diagnostic and therapeutic GI endoscopy at his clinics. See our colonoscopy page for details."
+        ]
+      },
+      "diabetes-and-bariatric-surgery": {
+        "title": "Diabetes and bariatric surgery: a radical treatment for type 2 diabetes",
+        "excerpt": "How bariatric surgery treats diabetes and why bypass is most effective.",
+        "date": "June 2025",
+        "readMinutes": "8",
+        "relatedSeoPage": "diabetes-obesity",
+        "paragraphs": [
+          "Obesity is the leading cause of type 2 diabetes. Bariatric surgery is now an established diabetes treatment — called metabolic surgery — not just weight loss.",
+          "Gastric bypass achieves diabetes remission in ~80% of patients. Sleeve is also effective in ~60%. Choice depends on diabetes severity and BMI.",
+          "Patients may stop insulin within weeks to months after surgery — under medical supervision. Follow-up is essential to monitor glucose and vitamins.",
+          "If you have diabetes and obesity, consult Prof. Kalmoush to assess suitable metabolic surgery options."
         ]
       }
     }
@@ -249,6 +291,42 @@
     "socialTiktok": "TikTok",
     "socialYoutube": "YouTube",
     "copyright": "Copyright © {year} Dr. Abd‑Elfattah Kalmoush Clinic. All rights reserved."
+  },
+  "seo": {
+    "home": "Home",
+    "services": "Medical services",
+    "locations": "Clinics",
+    "breadcrumbAria": "Breadcrumb",
+    "faqTitle": "Frequently asked questions",
+    "bookConsultation": "Book consultation on WhatsApp",
+    "readBlog": "Read medical blog",
+    "relatedPages": "Related pages",
+    "disclaimer": "This content is for general information only and does not replace a personalised medical consultation.",
+    "pageType": {
+      "service": "Medical service",
+      "commercial": "Pricing information",
+      "comparison": "Treatment comparison",
+      "faq": "FAQ",
+      "article": "Medical article",
+      "journey": "Patient journey",
+      "success": "Results & stories",
+      "location": "Local clinic"
+    },
+    "clusters": {
+      "gastric-sleeve": "Gastric sleeve",
+      "gastric-bypass": "Gastric bypass",
+      "mini-gastric-bypass": "Mini gastric bypass",
+      "revision-surgery": "Revision surgery",
+      "gastric-balloon": "Gastric balloon",
+      "bariatric-surgery": "Bariatric surgery",
+      "morbid-obesity": "Morbid obesity",
+      "gerd": "GERD",
+      "diabetes-obesity": "Diabetes & obesity",
+      "sleep-apnea": "Sleep apnea",
+      "endoscopy": "GI endoscopy",
+      "colonoscopy": "Colonoscopy",
+      "hiatal-hernia": "Hiatal hernia"
+    }
   },
   "phase5": {
     "hours": {

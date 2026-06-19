@@ -19,6 +19,7 @@ import {
   WHATSAPP_DISPLAY,
   WHATSAPP_URL,
 } from "@/lib/constants";
+import { getPrimaryServicePages } from "@/lib/seo/navigation";
 import { Link } from "@/i18n/navigation";
 
 type LinkItem = { key: string; href: string; label: string };
@@ -28,7 +29,6 @@ export function Footer() {
   const tNav = useTranslations("nav");
   const tHeader = useTranslations("header");
   const tCommon = useTranslations("common");
-  const tServices = useTranslations("servicesSection");
   const locale = useLocale();
 
   const usefulLinks: LinkItem[] = [
@@ -42,19 +42,11 @@ export function Footer() {
     { key: "workshop", href: "#workshop", label: tNav("workshop") },
   ];
 
-  const services: LinkItem[] = [
-    { key: "tummyTuck", href: "#services", label: tServices("items.tummyTuck.title") },
-    {
-      key: "gastricBypass",
-      href: "#services",
-      label: tServices("items.gastricBypass.title"),
-    },
-    {
-      key: "hiatalHernia",
-      href: "#services",
-      label: tServices("items.hiatalHernia.title"),
-    },
-  ];
+  const services = getPrimaryServicePages().map((page) => ({
+    key: page.id,
+    href: `/${locale}/${page.slug[locale as "ar" | "en"]}`,
+    label: page.h1[locale as "ar" | "en"],
+  }));
 
   const socials = [
     { key: "facebook", href: SOCIALS.facebook, label: t("socialFacebook"), Icon: FaFacebookF },

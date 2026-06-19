@@ -83,6 +83,9 @@ export const BLOG_SLUGS = [
   "bariatric-surgery-options",
   "laparoscopic-surgery-modern-care",
   "hiatal-hernia-reflux-relief",
+  "gastric-sleeve-complete-guide",
+  "colonoscopy-early-detection",
+  "diabetes-and-bariatric-surgery",
 ] as const;
 
 export type BlogSlug = (typeof BLOG_SLUGS)[number];
