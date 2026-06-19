@@ -20,6 +20,7 @@ import {
   WHATSAPP_URL,
 } from "@/lib/constants";
 import { getPrimaryServicePages } from "@/lib/seo/navigation";
+import { seoPagePath } from "@/lib/seo/paths";
 import { Link } from "@/i18n/navigation";
 
 type LinkItem = { key: string; href: string; label: string };
@@ -42,10 +43,11 @@ export function Footer() {
     { key: "workshop", href: "#workshop", label: tNav("workshop") },
   ];
 
+  const loc = locale as "ar" | "en";
   const services = getPrimaryServicePages().map((page) => ({
     key: page.id,
-    href: `/${locale}/${page.slug[locale as "ar" | "en"]}`,
-    label: page.h1[locale as "ar" | "en"],
+    href: seoPagePath(page, loc),
+    label: page.h1[loc],
   }));
 
   const socials = [

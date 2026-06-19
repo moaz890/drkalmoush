@@ -8,6 +8,7 @@ import { getSiteUrl } from "@/lib/site";
 import { BLOG_SLUGS, type BlogSlug } from "@/lib/constants";
 import { routing } from "@/i18n/routing";
 import { getPageById } from "@/lib/seo/registry";
+import { seoPagePath } from "@/lib/seo/paths";
 import { breadcrumbSchema } from "@/lib/seo/schema";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -171,7 +172,7 @@ export default async function BlogArticlePage({ params }: Props) {
             <div className="mt-10 flex flex-wrap gap-3">
               {relatedSeoPage ? (
                 <a
-                  href={`/${locale}/${relatedSeoPage.slug[loc]}`}
+                  href={seoPagePath(relatedSeoPage, loc)}
                   className="inline-flex h-11 items-center justify-center rounded-xl bg-brand-accent px-6 text-sm font-medium text-surface-ivory shadow-[0px_0px_0px_1px_var(--color-brand-accent)] transition-[filter] hover:brightness-95"
                 >
                   {relatedSeoPage.h1[loc]}

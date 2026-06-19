@@ -1,5 +1,6 @@
 import { Link } from "@/i18n/navigation";
 import { getSiteUrl } from "@/lib/site";
+import { seoPagePath } from "@/lib/seo/paths";
 import type { SeoPage } from "@/lib/seo/types";
 
 type Props = {
@@ -22,7 +23,7 @@ export function RelatedLinks({ pages, locale, title, clusterLabel }: Props) {
         {pages.map((page) => (
           <li key={page.id}>
             <a
-              href={`/${locale}/${page.slug[locale]}`}
+              href={seoPagePath(page, locale)}
               className="inline-flex items-center gap-2 text-sm font-semibold text-brand-accent underline-offset-4 hover:underline"
             >
               <span aria-hidden>{locale === "ar" ? "←" : "→"}</span>

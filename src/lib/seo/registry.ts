@@ -35,25 +35,35 @@ export function getPageById(id: string): SeoPage | undefined {
   return pageById.get(id);
 }
 
+export function normalizeSlug(slug: string): string {
+  try {
+    return decodeURIComponent(slug).normalize("NFC");
+  } catch {
+    return slug.normalize("NFC");
+  }
+}
+
 export function getPageBySlug(
   slug: string,
   locale: "ar" | "en"
 ): SeoPage | undefined {
-  return slugIndex.get(`${locale}:${slug}`);
+  const normalized = normalizeSlug(slug);
+  return slugIndex.get(`${locale}:${normalized}`);
 }
 
 export function getLocationBySlug(
   slug: string,
   locale: "ar" | "en"
 ): LocationPage | undefined {
-  return locationSlugIndex.get(`${locale}:${slug}`);
+  const normalized = normalizeSlug(slug);
+  return locationSlugIndex.get(`${locale}:${normalized}`);
 }
 
 export function getLocationBySegments(
   segments: string[],
   locale: "ar" | "en"
 ): LocationPage | undefined {
-  const combined = segments.join("/");
+  const combined = segments.map(normalizeSlug).join("/");
   return locationSlugIndex.get(`${locale}:${combined}`);
 }
 
