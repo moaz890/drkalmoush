@@ -27,6 +27,9 @@ export const metadata: Metadata = {
   },
   description:
     "Professor & consultant of bariatric, laparoscopic and GI surgery in Egypt.",
+  verification: {
+    google: "nhhQIouJ78TwnFBgw5WSY3yiXIjVaqAnFrFPd1tg5d4",
+  },
 };
 
 export default async function RootLayout({
