@@ -85,6 +85,16 @@ export default async function BlogArticlePage({ params }: Props) {
   const paragraphs = articleMeta.paragraphs;
   const relatedSeoPageId = articleMeta.relatedSeoPage;
 
+  if (!Array.isArray(paragraphs)) {
+    notFound();
+  }
+
+  const base = getSiteUrl();
+  const loc = locale as "ar" | "en";
+  const title = t(`articles.${slug}.title` as never);
+  const description = t(`articles.${slug}.excerpt` as never);
+  const articleUrl = `${base}/${locale}/blog/${slug}`;
+
   const relatedSeoPage = relatedSeoPageId
     ? getPageById(relatedSeoPageId)
     : undefined;
