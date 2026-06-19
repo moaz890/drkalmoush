@@ -35,7 +35,7 @@ export function Footer() {
   const usefulLinks: LinkItem[] = [
     { key: "home", href: "#home", label: tNav("home") },
     { key: "about", href: "#about", label: tNav("about") },
-    { key: "services", href: "#services", label: tNav("services") },
+    { key: "services", href: "/services", label: tNav("services") },
     { key: "testimonials", href: "#testimonials", label: tNav("testimonials") },
     { key: "videos", href: "#videos", label: tNav("videos") },
     { key: "conferences", href: "#conferences", label: tNav("conferences") },
@@ -103,9 +103,13 @@ export function Footer() {
 
             {/* Services */}
             <nav className="lg:col-span-3" aria-labelledby="footer-services-title">
-              <p id="footer-services-title" className="text-sm font-medium text-[#faf9f5]">
+              <Link
+                id="footer-services-title"
+                href="/services"
+                className="text-sm font-medium text-[#faf9f5] hover:underline"
+              >
                 {t("services")}
-              </p>
+              </Link>
               <ul className="mt-4 space-y-2 text-sm">
                 {services.map((it) => (
                   <li key={it.key}>

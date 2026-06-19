@@ -20,7 +20,8 @@
   "header": {
     "bookAppointment": "Book appointment",
     "bookOnline": "Online consultation",
-    "locations": "Locations"
+    "locations": "Locations",
+    "servicesMenu": "Services menu"
   },
   "hero": {
     "slide1": {
@@ -292,7 +293,20 @@
     "socialYoutube": "YouTube",
     "copyright": "Copyright © {year} Dr. Abd‑Elfattah Kalmoush Clinic. All rights reserved."
   },
-  "seo": {
+  "servicesPage": {
+    "navLabel": "Our services",
+    "metaTitle": "Medical Services | Prof. Dr. Abd-Elfattah Kalmoush",
+    "metaDescription": "Browse all clinic services: bariatric surgery, endoscopy, comparisons and medical guides. Gastric sleeve, bypass, colonoscopy and more.",
+    "title": "Our medical services",
+    "subtitle": "Choose a service to read details, FAQs, and book a consultation.",
+    "viewAll": "View all services",
+    "bookConsultation": "Book consultation on WhatsApp",
+    "groups": {
+      "bariatric": "Bariatric surgery",
+      "endoscopy": "GI endoscopy",
+      "guides": "Guides, comparisons & FAQs"
+    }
+  },
     "home": "Home",
     "services": "Medical services",
     "locations": "Clinics",

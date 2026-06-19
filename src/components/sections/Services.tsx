@@ -4,8 +4,9 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useLocale, useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
-import { FaHeartbeat, FaUserMd } from "react-icons/fa";
+import { FaUserMd } from "react-icons/fa";
 import { GiScalpel, GiStethoscope, GiWeightScale } from "react-icons/gi";
+import { Link } from "@/i18n/navigation";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Modal } from "@/components/ui/Modal";
@@ -49,14 +50,18 @@ export function Services() {
   return (
     <section id="services" className="py-16 sm:py-24">
       <Container>
-        <div className="mb-12 text-center">
-          <div className="flex items-center justify-center gap-2 text-sm font-semibold text-brand-accent">
-            <span>{t("doctorName")}</span>
-            <FaHeartbeat className="text-lg text-red-500" />
+        <div className="mb-12 flex flex-col items-center justify-between gap-4 sm:flex-row">
+          <div className="text-center sm:text-start">
+            <h2 className="text-3xl font-medium text-brand-primary sm:text-4xl">
+              {t("title")}
+            </h2>
           </div>
-          <h2 className="mt-3 text-3xl font-medium text-brand-primary sm:text-4xl">
-            {t("title")}
-          </h2>
+          <Link
+            href="/services"
+            className="inline-flex h-11 shrink-0 items-center justify-center rounded-xl border border-brand-secondary/20 px-5 text-sm font-semibold text-brand-accent transition-colors hover:bg-surface-sand/40"
+          >
+            {locale === "ar" ? "عرض جميع الخدمات ←" : "View all services →"}
+          </Link>
         </div>
 
         <div className="space-y-6">

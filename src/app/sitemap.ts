@@ -21,6 +21,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.75,
   }));
 
+  const services = routing.locales.map((locale) => ({
+    url: `${base}/${locale}/services`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.88,
+  }));
+
   const blogIndex = routing.locales.map((locale) => ({
     url: `${base}/${locale}/blog`,
     lastModified: new Date(),
@@ -55,5 +62,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   );
 
-  return [...home, ...videos, ...blogIndex, ...blogPosts, ...seoPages, ...locationPages];
+  return [...home, ...videos, ...services, ...blogIndex, ...blogPosts, ...seoPages, ...locationPages];
 }

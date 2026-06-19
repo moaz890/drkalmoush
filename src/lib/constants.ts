@@ -80,12 +80,12 @@ export const YOUTUBE_CLINIC_VIDEOS = [
 ] as const;
 
 export const BLOG_SLUGS = [
-  "bariatric-surgery-options",
-  "laparoscopic-surgery-modern-care",
-  "hiatal-hernia-reflux-relief",
-  "gastric-sleeve-complete-guide",
-  "colonoscopy-early-detection",
   "diabetes-and-bariatric-surgery",
+  "colonoscopy-early-detection",
+  "gastric-sleeve-complete-guide",
+  "hiatal-hernia-reflux-relief",
+  "laparoscopic-surgery-modern-care",
+  "bariatric-surgery-options",
 ] as const;
 
 export type BlogSlug = (typeof BLOG_SLUGS)[number];
